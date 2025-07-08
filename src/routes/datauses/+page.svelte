@@ -10,17 +10,17 @@
     {
       type: "Browsing data",
       provider: "Google",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+      logo: "/logos/google.webp"
     },
     {
       type: "Purchase history",
       provider: "Amazon",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
+      logo: "/logos/amazon.jpg"
     },
     {
       type: "Content interactions",
       provider: "Instagram",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg"
+      logo: "/logos/instagram.webp"
     }],
     basis: {
       controller: "Instagram",
@@ -33,4 +33,4 @@
     }
   },
   timestamp: "2 hours ago"
-}} logosrc="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"/>
+}} logosrc="/logos/instagram.webp"/>
