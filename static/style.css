@@ -186,3 +186,29 @@ button:active {
   font-size: 0.85rem;
   color: #556b84;
 }
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: #6b7280; /* soft gray */
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e5e7eb; /* subtle divider */
+}
+
+.card-footer a {
+  text-decoration: none;
+  color: #4f46e5; /* accent blue-purple */
+}
+
+.card-footer a:hover {
+  text-decoration: underline;
+}
+
+.card-footer .report-link {
+  color: #9ca3af; /* lighter gray for secondary link */
+}
+
+

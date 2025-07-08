@@ -65,6 +65,14 @@
       </ul>
 
       <p class="consent-expiry">until it expires on {data.context.basis.expiry}</p>
+      <div class="card-footer">
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          Review your agreement on instagram.com
+        </a>  
+        <a href="/report" class="report-link">
+          Report an issue
+        </a>
+      </div>
     </div>
 
   </div>
