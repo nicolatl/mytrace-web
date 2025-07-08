@@ -1,5 +1,6 @@
 <script> 
     import DataUse from "$lib/DataUse.svelte";
+    import { base } from '$app/paths';
 </script>
 <h1>Data Uses</h1>
 <DataUse data={{
@@ -10,17 +11,17 @@
     {
       type: "Browsing data",
       provider: "Google",
-      logo: "/logos/google.webp"
+      logo: `${base}/logos/google.webp`
     },
     {
       type: "Purchase history",
       provider: "Amazon",
-      logo: "/logos/amazon.jpg"
+      logo: `${base}/logos/amazon.jpg`
     },
     {
       type: "Content interactions",
       provider: "Instagram",
-      logo: "/logos/instagram.webp"
+      logo: `${base}/logos/instagram.webp`
     }],
     basis: {
       controller: "Instagram",
@@ -33,4 +34,4 @@
     }
   },
   timestamp: "2 hours ago"
-}} logosrc="/logos/instagram.webp"/>
+}} logosrc={`${base}/logos/instagram.webp`}/>
