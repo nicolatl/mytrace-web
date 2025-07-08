@@ -26,11 +26,13 @@
     basis: {
       controller: "Instagram",
       status: "Active",
-      expiry: "2025-12-31",
+      expiry: "December 31, 2025",
       terms: [
-        ["email address", "ad targeting"],
-        ["browsing history", "feed recommendations"]
-      ]
+        ["Third-party browsing data", "marketing and content recommendation"],
+        ["Third-party purchase history", "marketing"],
+        ["Content interactions on Instagram", "marketing, content recommendation, user research, and feature improvement"]
+      ],
+      timestamp: "1 year ago"
     }
   },
   timestamp: "2 hours ago"

@@ -50,14 +50,21 @@
     </ul>
 
     <h4>Used Because</h4>
-    <div class="consent-info">
-      <p><strong>Status:</strong> {data.context.basis.status}</p>
-      <p><strong>Expires:</strong> {data.context.basis.expiry}</p>
-      <ul>
+    <div class="consent-card">
+      <div class="consent-header">
+        <h5>Your Agreement with {data.context.controller}</h5>
+        <span class="consent-timestamp">{data.context.basis.timestamp}</span>
+      </div>
+
+      <p class="consent-intro">allows {data.context.controller} to use</p>
+
+      <ul class="consent-terms">
         {#each data.context.basis.terms as [datum, purpose]}
-          <li><strong>{datum}</strong> for {purpose}</li>
+          <li><strong>{datum}</strong> for <em>{purpose}</em></li>
         {/each}
       </ul>
+
+      <p class="consent-expiry">until it expires on {data.context.basis.expiry}</p>
     </div>
 
   </div>
