@@ -172,7 +172,7 @@ button:active {
 }
 
 .consent-terms {
-  list-style: disc inside;
+  list-style: disc outside;
   margin-bottom: 0.5rem;
   color: #2a3e5c;
 }
