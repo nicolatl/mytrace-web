@@ -245,3 +245,16 @@ body {
   outline: none;
   box-shadow: 0 0 0 2px #fee2e2;
 }
+
+.attestations-box {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  padding: 1rem;
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}

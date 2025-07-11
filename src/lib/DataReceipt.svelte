@@ -4,6 +4,8 @@
   export let data;
   export let logosrc;
   export let controllersite;
+  export let showReportButton = true;
+
 
   let expanded = false;
 
@@ -74,7 +76,9 @@
           <li><strong>{datum}</strong> for <em>{purpose}</em>
             {#if hasCarPayments && datum.includes("car payment data") && purpose !== "credit decisioning"}
               <span class="issue-label">⚠ This data was used for credit decisioning</span>
-              <a href="/newreport" class="report-button">Report This</a>
+              {#if showReportButton}
+                <a href="/newreport" class="report-button">Report This</a>
+              {/if}
             {/if}
           </li>
         {/each}
