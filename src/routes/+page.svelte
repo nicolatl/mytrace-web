@@ -57,16 +57,16 @@
     basis: {
       controller: "LendingClub",
       status: "Active",
-      expiry: "August 8, 2025",
+      expiry: "August 1, 2025",
       terms: [
         ["3 months of bank transaction data", "credit decisioning"],
         ["12 months of utility payment data", "credit decisioning"],
         ["12 months of car payment data", "marketing"]
       ],
-      timestamp: "1 week ago"
+      timestamp: "2 weeks ago"
     }
   },
-  timestamp: "18 hours ago"
+  timestamp: "8 days ago"
 }} logosrc={`${base}/logos/lendingclub.png`} controllersite="lendingclub.com"/>
 
 <DataReceipt data={{
@@ -101,5 +101,5 @@
       timestamp: "1 year ago"
     }
   },
-  timestamp: "2 hours ago"
+  timestamp: "10 days ago"
 }} logosrc={`${base}/logos/instagram.webp`} controllersite="instagram.com"/>
