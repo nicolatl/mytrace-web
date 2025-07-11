@@ -59,27 +59,27 @@ body {
   border-top: 1px solid #e2e8f0;
 }
 
-button {
-  display: inline-flex;
+.chevron-button {
+  all: unset;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.75rem;
-  background-color: oklch(60% 0.2 270);
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  color: #6b7280;
+  outline: none;
+  border: none;
 }
 
-button:hover {
-  background-color: oklch(65% 0.22 270);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+.chevron-button svg {
+  display: block;
 }
 
-button:active {
-  background-color: oklch(55% 0.18 270);
+.chevron-button:hover {
+  color: #111827; /* darker on hover */
+}
+
+.chevron-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .timestamp {
@@ -211,4 +211,37 @@ button:active {
   color: #9ca3af; /* lighter gray for secondary link */
 }
 
+.issue-label {
+  background-color: #fee2e2;
+  color: #991b1b;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
 
+.report-button {
+  background-color: #dc2626; /* solid red */
+  color: #ffffff;             /* white text */
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 4px;
+  text-decoration: none;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+.report-button:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+.report-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #fee2e2;
+}

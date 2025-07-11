@@ -10,6 +10,8 @@
   function toggleExpand() {
     expanded = !expanded;
   }
+
+  $: hasCarPayments = data.context.data.some(item => item.type === "Car Payments");
 </script>
 
 <div class="card">
@@ -22,13 +24,17 @@
       </h3>
     </div>
 
+      {#if hasCarPayments}
+        <span class="issue-label">1 issue</span>
+      {/if}
+
     <div style="margin-left: auto; display: flex; gap: 0.75rem; align-items: center;">
       <span class="timestamp">{data.timestamp}</span>
-      <button on:click={toggleExpand}>
+      <button on:click={toggleExpand} class="chevron-button" aria-label="Toggle details">
         {#if expanded}
-          <ChevronUp width="16" height="16" />
+          <ChevronUp class="chevron-icon" />
         {:else}
-          <ChevronDown width="16" height="16" />
+          <ChevronDown class="chevron-icon" />
         {/if}
       </button>
     </div>
@@ -43,9 +49,13 @@
         <li>
           <img src={item.logo} alt={item.provider} class="data-logo" />
           <div class="data-info">
-            <div class="data-type">{item.type}</div>
+            <div class="data-type">{item.type}
+            </div>
             <div class="data-provider">Provided by {item.provider}</div>
           </div>
+          {#if item.type === "Car Payments"}
+            <span class="issue-label">1 issue</span>
+          {/if}
         </li>
       {/each}
     </ul>
@@ -61,7 +71,12 @@
 
       <ul class="consent-terms">
         {#each data.context.basis.terms as [datum, purpose]}
-          <li><strong>{datum}</strong> for <em>{purpose}</em></li>
+          <li><strong>{datum}</strong> for <em>{purpose}</em>
+            {#if hasCarPayments && datum.includes("car payment data") && purpose !== "credit decisioning"}
+              <span class="issue-label">⚠ This data was used for credit decisioning</span>
+              <a href="/newreport" class="report-button">Report This</a>
+            {/if}
+          </li>
         {/each}
       </ul>
 
