@@ -3,6 +3,7 @@
 
   export let data;
   export let logosrc;
+  export let controllersite;
 
   let expanded = false;
 
@@ -25,9 +26,9 @@
       <span class="timestamp">{data.timestamp}</span>
       <button on:click={toggleExpand}>
         {#if expanded}
-          Hide <ChevronUp width="16" height="16" />
+          <ChevronUp width="16" height="16" />
         {:else}
-          See why <ChevronDown width="16" height="16" />
+          <ChevronDown width="16" height="16" />
         {/if}
       </button>
     </div>
@@ -66,8 +67,8 @@
 
       <p class="consent-expiry">until it expires on {data.context.basis.expiry}</p>
       <div class="card-footer">
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-          Review your agreement on instagram.com
+        <a href="https://www.{controllersite}" target="_blank" rel="noopener noreferrer">
+          Review your agreement on {controllersite}
         </a>  
         <a href="/report" class="report-link">
           Report an issue

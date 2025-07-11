@@ -1,9 +1,11 @@
 <script>
     import { page } from "$app/stores";
     let pages = [
-        { url: "./", title: "Notifications" },
-        { url: "./datauses", title: "Data Uses" },
-        { url: "./warnings", title: "Warnings" }
+        { url: "./", title: "Data Receipts" },
+        { url: "./warnings", title: "Warnings" },
+        { url: "./reports", title: "Reports" },
+        { url: "./attestations", title: "OTrace Attestations" },
+        { url: "./newreport", title: "New Report" }
     ];
 
 </script>
