@@ -1,5 +1,6 @@
 <script>
   import { ChevronDown, ChevronUp } from 'lucide-svelte';
+  import { base } from '$app/paths';
 
   export let data;
   export let logosrc;
@@ -77,7 +78,7 @@
             {#if hasCarPayments && datum.includes("car payment data") && purpose !== "credit decisioning"}
               <span class="issue-label">⚠ This data was used for credit decisioning</span>
               {#if showReportButton}
-                <a href="/newreport" class="report-button">Report This</a>
+                <a href="{base}/newreport" class="report-button">Report This</a>
               {/if}
             {/if}
           </li>
@@ -89,7 +90,7 @@
         <a href="https://www.{controllersite}" target="_blank" rel="noopener noreferrer">
           Review your agreement on {controllersite}
         </a>  
-        <a href="/report" class="report-link">
+        <a href="{base}/report" class="report-link">
           Report an issue
         </a>
       </div>
