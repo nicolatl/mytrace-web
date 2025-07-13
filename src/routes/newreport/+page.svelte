@@ -40,6 +40,31 @@
       timestamp: "18 hours ago"
     }
   ];
+
+  import attestationsRaw from '$lib/data/attestations.json';
+
+  let attachMode = false;
+
+  // Sort attestations by id ascending
+  let attestations = [...attestationsRaw].sort((a, b) => a.id - b.id);
+
+  // Starting selection: IDs 1-6 and 19+
+  let selectedAttestationIds = attestations
+    .filter(a => a.id <= 6 || a.id >= 19)
+    .map(a => a.id);
+
+  // Working selection for attachMode
+  let selectedInAttachMode = new Set(selectedAttestationIds);
+
+  function openAttachMode() {
+    attachMode = true;
+    selectedInAttachMode = new Set(selectedAttestationIds);
+  }
+
+  function saveSelection() {
+    selectedAttestationIds = Array.from(selectedInAttachMode);
+    attachMode = false;
+  }
 </script>
 
 <h2>New Report</h2>
@@ -58,28 +83,60 @@
 
 <section>
   <h3>Relevant Attestations</h3>
-  <pre class="attestations-box">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
+  <div class="attestation-box" style="max-height:200px;">
 
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-  </pre>
+  <table class="attestation-table" style="width: 100%; border-collapse: collapse;">
+    <thead>
+      <tr>
+        {#if attachMode}
+          <th>✔</th>
+        {/if}
+        <th>Party</th>
+        <th>Timestamp</th>
+        <th>Type</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each attestations as attestation (attestation.id)}
+        {#if attachMode || selectedAttestationIds.includes(attestation.id)}
+          <tr>
+            {#if attachMode}
+              <td>
+                <input
+                  type="checkbox"
+                  checked={selectedInAttachMode.has(attestation.id)}
+                  on:change={(e) => {
+                    if (e.target.checked) {
+                      selectedInAttachMode.add(attestation.id);
+                    } else {
+                      selectedInAttachMode.delete(attestation.id);
+                    }
+                  }}
+                />
+              </td>
+            {/if}
+            <td>{attestation.party}</td>
+            <td>{attestation.Timestamp}</td>
+            <td>{attestation.type}</td>
+            <td>{attestation.body}</td>
+          </tr>
+        {/if}
+      {/each}
+    </tbody>
+  </table>
+</div>
+<div class="button-row">
+  {#if attachMode}
+    <button on:click={saveSelection} class="primary-button">
+      Save Selection
+    </button>
+  {:else}
+    <button on:click={openAttachMode} class="primary-button">
+      <span style="font-size: 1.1em;">＋</span> Attach more
+    </button>
+  {/if}
+</div>
 </section>
 
 <section>
@@ -145,4 +202,64 @@ Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehi
   .submit-button:hover {
     background-color: #4338ca;
   }
+
+
+
+
+
+
+
+
+
+
+
+  .attestation-box {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    background: #f9f9f9;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    overflow: auto;
+  }
+
+  .attestation-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: monospace;
+    font-size: 0.9rem;
+  }
+
+  .attestation-table th,
+  .attestation-table td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    vertical-align: top;
+  }
+
+  .attestation-table th {
+    background: #eee;
+    text-align: left;
+  }
+
+  .attestation-table tr:nth-child(even) {
+    background: #fdfdfd;
+  }
+
+  .button-row {
+    margin-top: 1rem;
+  }
+
+  .primary-button {
+    background: #0044cc;
+    color: #fff;
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+
+  .primary-button:hover {
+    background: #003399;
+  }
+
 </style>
