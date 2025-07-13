@@ -254,7 +254,40 @@ body {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.85rem;
   line-height: 1.4;
-  max-height: 200px;
+  max-height: 90%;
   overflow-y: auto;
   white-space: pre-wrap;
+  background-color: #f9f9f9;
+  padding: 1rem;
+  font-family: 'Source Code Pro', monospace;
+  overflow-x: auto;
+  border-radius: 0.5rem;
 }
+
+.attestation-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.attestation-table th,
+.attestation-table td {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.875rem;
+}
+
+.attestation-table th {
+  background-color: #eee;
+}
+
+.attestation-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.attestation-table tr:hover {
+  background-color: #f0f0f0;
+}
+
+

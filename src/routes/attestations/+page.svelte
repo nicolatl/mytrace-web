@@ -1,23 +1,31 @@
+<script>
+  import attestationsRaw from '$lib/data/attestations.json';
+  // Sort by timestamp ascending
+  let attestations = [...attestationsRaw].sort(
+    (a, b) => new Date(a.Timestamp) - new Date(b.Timestamp)
+  );
+</script>
 <h2>OTrace Attestations</h2>
-<pre class="attestations-box">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
+<div class="attestations-box">
+  <table class="attestation-table">
+    <thead>
+      <tr>
+        <th>Party</th>
+        <th>Timestamp</th>
+        <th>Type</th>
+        <th>Body</th>
+      </tr>
+    </thead>
+    <tbody>
+      {#each attestations as attestation}
+        <tr>
+          <td>{attestation.party}</td>
+          <td>{attestation.Timestamp}</td>
+          <td>{attestation.type}</td>
+          <td>{attestation.body}</td>
+        </tr>
+      {/each}
+    </tbody>
+  </table>
+</div>
 
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nec lorem ut leo vestibulum vehicula.
-Curabitur at erat in massa tempor vehicula at in purus. Vivamus aliquam sapien vel orci pulvinar fermentum.
-
-Suspendisse malesuada mauris id gravida rutrum. Vestibulum viverra, metus a vehicula sagittis, purus metus sagittis orci, at fermentum purus metus at sem.
-  </pre>
