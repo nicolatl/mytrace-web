@@ -13,6 +13,7 @@
         type: "Bank Transactions",
         provider: "Citibank",
         logo: `${base}/logos/citibank.jpeg`,
+        usage: "3 months for credit decisioning",
         basis: {
           timestamp: "1 week ago",
           terms: [["3 months of bank transaction data", "credit decisioning"]],
@@ -23,6 +24,7 @@
         type: "Utility Payments",
         provider: "Eversource",
         logo: `${base}/logos/eversource.png`,
+        usage: "12 months for credit decisioning",
         basis: {
           timestamp: "1 week ago",
           terms: [["12 months of utility payment data", "credit decisioning"]],
@@ -33,6 +35,7 @@
         type: "Car Payments",
         provider: "Ally Financial",
         logo: `${base}/logos/allyfinancial.png`,
+        usage: "12 months for credit decisioning",
         basis: {
           timestamp: "1 week ago",
           terms: [["12 months of car payment data", "marketing"]],
@@ -53,6 +56,7 @@
         type: "Bank Transactions",
         provider: "Citibank",
         logo: `${base}/logos/citibank.jpeg`,
+        usage: "3 months for credit decisioning",
         basis: {
           timestamp: "2 weeks ago",
           terms: [["3 months of bank transaction data", "credit decisioning"]],
@@ -63,6 +67,7 @@
         type: "Utility Payments",
         provider: "Eversource",
         logo: `${base}/logos/eversource.png`,
+        usage: "12 months for credit decisioning",
         basis: {
           timestamp: "2 weeks ago",
           terms: [["12 months of utility payment data", "credit decisioning"]],
@@ -83,6 +88,7 @@
         type: "Browsing data",
         provider: "Google",
         logo: `${base}/logos/google.webp`,
+        usage: "1 month for marketing",
         basis: {
           timestamp: "1 year ago",
           terms: [["Third-party browsing data", "marketing and content recommendation"]],
@@ -93,6 +99,7 @@
         type: "Purchase history",
         provider: "Amazon",
         logo: `${base}/logos/amazon.jpg`,
+        usage: "1 year for marketing",
         basis: {
           timestamp: "1 year ago",
           terms: [["Third-party purchase history", "marketing"]],
@@ -103,6 +110,7 @@
         type: "Content interactions",
         provider: "Instagram",
         logo: `${base}/logos/instagram.webp`,
+        usage: "1 year for marketing",
         basis: {
           timestamp: "1 year ago",
           terms: [["Content interactions on Instagram", "marketing, content recommendation, user research, and feature improvement"]],
