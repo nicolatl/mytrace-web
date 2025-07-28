@@ -1,57 +1,55 @@
 [
   {
-    "Timestamp": "01/11/2025 2:28:00",
+    "timestamp": "01/11/2025 2:28:00",
     "id": 1,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
     },
     "body": "LendingClub introduces themselves to MyTrace"
   },
   {
-    "Timestamp": "01/18/2025 7:05:00",
+    "timestamp": "01/18/2025 7:05:00",
     "id": 2,
     "party": "CitiBank",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.introduce"},
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"},
     "body": "CitiBank introduces themselves to MyTrace"
   },
   {
-    "Timestamp": "04/03/2025 15:52:00",
+    "timestamp": "04/03/2025 15:52:00",
     "id": 3,
     "party": "Eversource",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
     },
     "body": "Eversource introduces themselves to MyTrace"
   },
   {
-    "Timestamp": "05/23/2025 19:49:00",
+    "timestamp": "05/23/2025 19:49:00",
     "id": 4,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.introduce"},
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"},
     "body": "Jane Smith introduces themselves to MyTrace"
   },
   {
-    "type": "introduction",
-    "Timestamp": "07/01/2025 22:02:00",
+    "timestamp": "07/01/2025 22:02:00",
     "id": 5,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.introduce",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce",
       "controller": 1,
       "subject": 4
     },
     "body": "Jane Smith introduces LendingClub to MyTrace"
   },
   {
-    "type": "introduction acknowledgement",
-    "Timestamp": "07/01/2025 22:03:00",
+    "timestamp": "07/01/2025 22:03:00",
     "id": 6,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-acknowledge",
       "controller": 1,
       "introduction": 5,
       "subject": 4
@@ -59,33 +57,33 @@
     "body": "LendingClub agrees to use MyTrace for data about Jane Smith"
   },
   {
-    "Timestamp": "07/01/2025 22:28:00",
+    "timestamp": "07/01/2025 22:28:00",
     "id": 7,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.request",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo transaction data from Citibank in credit decisioning' and expiration August 1, 2025"
   },
   {
-    "Timestamp": "07/01/2025 22:28:00",
+    "timestamp": "07/01/2025 22:28:00",
     "id": 8,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.request",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 1, 2025"
   },
   {
-    "Timestamp": "07/01/2025 22:29:00",
+    "timestamp": "07/01/2025 22:29:00",
     "id": 9,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.accept",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
       "consent": 7,
       "controller": 1,
       "subject": 4
@@ -93,11 +91,11 @@
     "body": "Jane Smith accepts consent from LendingCLub"
   },
   {
-    "Timestamp": "07/01/2025 22:29:00",
+    "timestamp": "07/01/2025 22:29:00",
     "id": 10,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.accept",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
       "consent": 8,
       "controller": 1,
       "subject": 4
@@ -105,11 +103,11 @@
     "body": "Jane Smith accepts consent from LendingCLub"
   },
   {
-    "Timestamp": "07/01/2025 22:29:00",
+    "timestamp": "07/01/2025 22:29:00",
     "id": 11,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.authorize",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-authorize",
       "consent": 9,
       "recipient": 1,
       "provider": 2,
@@ -118,11 +116,11 @@
     "body": "Jane Smith authorizes 3mo transaction data from Citibank to be sent to LendingCLub according to the consent"
   },
   {
-    "Timestamp": "07/01/2025 22:29:00",
+    "timestamp": "07/01/2025 22:29:00",
     "id": 12,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.authorize",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-authorize",
       "consent": 10,
       "recipient": 1,
       "provider": 3,
@@ -131,11 +129,11 @@
     "body": "Jane Smith authorizes 12mo payments data from Eversource to be sent to LendingCLub according to the consent"
   },
   {
-    "Timestamp": "07/01/2025 23:55:00",
+    "timestamp": "07/01/2025 23:55:00",
     "id": 13,
     "party": "Citibank",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 11,
       "controller": 2,
       "subject": 4
@@ -143,11 +141,11 @@
     "body": "Citibank agrees to authorization"
   },
   {
-    "Timestamp": "07/02/2025 9:00:00",
+    "timestamp": "07/02/2025 9:00:00",
     "id": 14,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 11,
       "controller": 1,
       "subject": 4
@@ -155,11 +153,11 @@
     "body": "LendingClub acknowledges authorization"
   },
   {
-    "Timestamp": "07/04/2025 10:37:00",
+    "timestamp": "07/04/2025 10:37:00",
     "id": 15,
     "party": "Eversource",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 12,
       "controller": 3,
       "subject": 4
@@ -167,11 +165,11 @@
     "body": "Eversource agrees to authorization"
   },
   {
-    "Timestamp": "07/04/2025 15:52:00",
+    "timestamp": "07/04/2025 15:52:00",
     "id": 16,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 12,
       "controller": 1,
       "subject": 4
@@ -179,11 +177,11 @@
     "body": "LendingClub acknowledges authorization"
   },
   {
-    "Timestamp": "07/06/2025 10:43:00",
+    "timestamp": "07/06/2025 10:43:00",
     "id": 17,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse.use",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
       "basis": 9,
       "data": 11,
       "subject": 4
@@ -191,11 +189,11 @@
     "body": "LendingClub uses data from subject according to basis"
   },
   {
-    "Timestamp": "07/06/2025 10:43:00",
+    "timestamp": "07/06/2025 10:43:00",
     "id": 18,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse.use",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
       "basis": 10,
       "data": 12,
       "subject": 4
@@ -203,63 +201,63 @@
     "body": "LendingClub uses data from subject according to basis"
   },
   {
-    "Timestamp": "07/06/2025 10:43:00",
+    "timestamp": "07/06/2025 10:43:00",
     "id": 19,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt.create",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt-create",
       "dataUses": [17,18]
     },
     "body": "LendingClub uses data from subject according to basis"
   },
   {
-    "Timestamp": "07/07/2025 12:40:00",
+    "timestamp": "07/07/2025 12:40:00",
     "id": 20,
     "party": "Ally Financial",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction.introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
     },
     "body": "Ally Financial introduces themselves to MyTrace"
   },
   {
-    "Timestamp": "07/08/2025 22:02:00",
+    "timestamp": "07/08/2025 22:02:00",
     "id": 21,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.request",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo transaction data from Citibank in credit decisioning' and expiration August 8, 2025"
   },
   {
-    "Timestamp": "07/08/2025 22:02:00",
+    "timestamp": "07/08/2025 22:02:00",
     "id": 22,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.request",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 1, 2025"
   },
   {
-    "Timestamp": "07/08/2025 22:02:00",
+    "timestamp": "07/08/2025 22:02:00",
     "id": 23,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.request",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo car payments data from Ally Financial in credit decisioning' and expiration August 8, 2025"
   },
     {
-    "Timestamp": "07/08/2025 22:05:00",
+    "timestamp": "07/08/2025 22:05:00",
     "id": 24,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.accept",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
       "consent": 21,
       "controller": 1,
       "subject": 4
@@ -267,11 +265,11 @@
     "body": "Jane Smith accepts consent from LendingClub"
   },
   {
-    "Timestamp": "07/08/2025 22:05:00",
+    "timestamp": "07/08/2025 22:05:00",
     "id": 25,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.accept",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
       "consent": 22,
       "controller": 1,
       "subject": 4
@@ -279,11 +277,11 @@
     "body": "Jane Smith accepts consent from LendingClub"
   },
   {
-    "Timestamp": "07/08/2025 22:05:00",
+    "timestamp": "07/08/2025 22:05:00",
     "id": 26,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent.accept",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
       "consent": 23,
       "controller": 1,
       "subject": 4
@@ -291,11 +289,11 @@
     "body": "Jane Smith accepts consent from LendingClub"
   },
   {
-    "Timestamp": "07/08/2025 22:06:00",
+    "timestamp": "07/08/2025 22:06:00",
     "id": 27,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.authorize",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-authorize",
       "consent": 24,
       "controller": 1,
       "provider": 2,
@@ -304,11 +302,11 @@
     "body": "Jane Smith authorizes 3mo transaction data from Citibank to be sent to LendingClub according to the consent"
   },
   {
-    "Timestamp": "07/08/2025 22:06:00",
+    "timestamp": "07/08/2025 22:06:00",
     "id": 28,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.authorize",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-authorize",
       "consent": 25,
       "controller": 1,
       "provider": 3,
@@ -317,11 +315,11 @@
     "body": "Jane Smith authorizes 12mo utility payments data from Eversource to be sent to LendingClub according to the consent"
   },
   {
-    "Timestamp": "07/08/2025 22:06:00",
+    "timestamp": "07/08/2025 22:06:00",
     "id": 29,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.authorize",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-authorize",
       "consent": 26,
       "controller": 1,
       "provider": 20,
@@ -330,11 +328,11 @@
     "body": "Jane Smith authorizes 3mo car payments data from Ally Financial to be sent to LendingClub according to the consent"
   },
   {
-    "Timestamp": "07/09/2025 09:12:00",
+    "timestamp": "07/09/2025 09:12:00",
     "id": 30,
     "party": "Citibank",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 27,
       "controller": 1,
       "provider": 2,
@@ -343,11 +341,11 @@
     "body": "Citibank agrees to authorization"
   },
   {
-    "Timestamp": "07/09/2025 09:14:00",
+    "timestamp": "07/09/2025 09:14:00",
     "id": 31,
     "party": "Eversource",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 28,
       "controller": 1,
       "provider": 3,
@@ -356,11 +354,11 @@
     "body": "Eversource agrees to authorization"
   },
   {
-    "Timestamp": "07/09/2025 09:15:00",
+    "timestamp": "07/09/2025 09:15:00",
     "id": 32,
     "party": "Ally Financial",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 29,
       "controller": 1,
       "provider": 20,
@@ -369,11 +367,11 @@
     "body": "Ally Financial agrees to authorization"
   },
   {
-    "Timestamp": "07/09/2025 10:00:00",
+    "timestamp": "07/09/2025 10:00:00",
     "id": 33,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 27,
       "controller": 1,
       "provider": 2,
@@ -382,11 +380,11 @@
     "body": "LendingClub acknowledges authorization"
   },
   {
-    "Timestamp": "07/09/2025 10:01:00",
+    "timestamp": "07/09/2025 10:01:00",
     "id": 34,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 28,
       "controller": 1,
       "provider": 3,
@@ -395,11 +393,11 @@
     "body": "LendingClub acknowledges authorization"
   },
   {
-    "Timestamp": "07/09/2025 10:02:00",
+    "timestamp": "07/09/2025 10:02:00",
     "id": 35,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization.acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
       "authorization": 29,
       "controller": 1,
       "provider": 20,
@@ -408,12 +406,11 @@
     "body": "LendingClub acknowledges authorization"
   },
     {
-    "type": "data use",
-    "Timestamp": "07/10/2025 14:42:00",
+    "timestamp": "07/10/2025 14:42:00",
     "id": 36,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse.use",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
       "basis": 24,
       "data": 27,
       "subject": 4
@@ -421,11 +418,11 @@
     "body": "LendingClub uses bank transaction data from Citibank to make a credit decision"
   },
   {
-    "Timestamp": "07/10/2025 14:43:00",
+    "timestamp": "07/10/2025 14:43:00",
     "id": 37,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse.use",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
       "basis": 25,
       "data": 28,
       "subject": 4
@@ -433,11 +430,11 @@
     "body": "LendingClub uses utility payments data from Eversource to make a credit decision"
   },
   {
-    "Timestamp": "07/10/2025 14:44:00",
+    "timestamp": "07/10/2025 14:44:00",
     "id": 38,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse.use",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
       "basis": 26,
       "data": 29,
       "subject": 4
@@ -445,12 +442,11 @@
     "body": "LendingClub uses car payment data from Ally Financial to make a credit decision"
   },
   {
-    "type": "data receipt",
-    "Timestamp": "07/10/2025 14:45:00",
+    "timestamp": "07/10/2025 14:45:00",
     "id": 39,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt.create",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt-create",
       "dataUses": [36, 37, 38]
     },
     "body": "LendingClub logs data usage with MyTrace"

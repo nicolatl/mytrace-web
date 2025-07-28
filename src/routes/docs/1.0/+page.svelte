@@ -9,7 +9,7 @@
     <p>traceService: Introduction → TraceService</p>
     </div>
     <p><strong>actions</strong></p>
-    <div style="padding-left: 2em;" id="introduction.introduce">
+    <div style="padding-left: 2em;" id="introduction-introduce">
         introduce(s: Subject, c: Controller, t: TraceService) → i: Introduction
         <div style="padding-left: 2em;">
             creates fresh introduction i such that
@@ -21,7 +21,7 @@
             this represents a request by s for c to use t to trace their data interactions with s
         </div>
     </div>
-    <div style="padding-left: 2em;" id="introduction.acknowledge">
+    <div style="padding-left: 2em;" id="introduction-acknowledge">
         acknowledge(c: Controller, s: Subject, j: introduction) 
         <div style="padding-left: 2em;">
             c agrees to trace their data interactions with s according to j
@@ -48,7 +48,7 @@
     <p><strong>actions</strong></p>
 
     <!-- request -->
-    <div style="padding-left: 2em;" id="consent.request">
+    <div style="padding-left: 2em;" id="consent-request">
     request(c: Controller, s: Subject, ts: set Term, e: Timestamp) → consent: Consent
     <div style="padding-left: 2em;">
         creates fresh consent such that
@@ -63,7 +63,7 @@
     </div>
 
     <!-- accept -->
-    <div style="padding-left: 2em;" id="consent.accept">
+    <div style="padding-left: 2em;" id="consent-accept">
     accept(s: Subject, c: Consent) → c: Consent
     <div style="padding-left: 2em;">
         requires c.status = REQUESTED<br>
@@ -72,7 +72,7 @@
     </div>
 
     <!-- deny -->
-    <div style="padding-left: 2em;" id="consent.deny">
+    <div style="padding-left: 2em;" id="consent-deny">
     deny(s: Subject, c: Consent) → c: Consent
     <div style="padding-left: 2em;">
         requires c.status = REQUESTED and c.subject = s<br>
@@ -81,7 +81,7 @@
     </div>
 
     <!-- revoke -->
-    <div style="padding-left: 2em;" id="consent.revoke">
+    <div style="padding-left: 2em;" id="consent-revoke">
     revoke(s: Subject, c: Consent) → c: Consent
     <div style="padding-left: 2em;">
         requires c.status = ACCEPTED and c.subject = s<br>
@@ -90,7 +90,7 @@
     </div>
 
     <!-- expire -->
-    <div style="padding-left: 2em;" id="consent.expire">
+    <div style="padding-left: 2em;" id="consent-expire">
     expire(c: Consent)
     <div style="padding-left: 2em;">
         requires c.status = ACCEPTED and c.expiry is before now<br>
@@ -99,7 +99,7 @@
     </div>
 
     <!-- permit -->
-    <div style="padding-left: 2em;" id="consent.permit">
+    <div style="padding-left: 2em;" id="consent-permit">
     permit(c: Controller, s: Subject, t: Term)
     <div style="padding-left: 2em;">
         requires some consent c where c.status = ACCEPTED and t in c.terms
@@ -139,7 +139,7 @@
     <p><strong>actions</strong></p>
 
     <!-- authorize -->
-    <div style="padding-left: 2em;" id="authorization.authorize">
+    <div style="padding-left: 2em;" id="authorization-authorize">
     authorize(s: Subject, p: Provider, r: Recipient, d: set Data, e: Expiration) → a: Authorization
     <div style="padding-left: 2em;">
         creates fresh authorization a such that
@@ -154,7 +154,7 @@
     </div>
 
     <!-- revoke -->
-    <div style="padding-left: 2em;" id="authorization.revoke">
+    <div style="padding-left: 2em;" id="authorization-revoke">
     revoke(s: Subject, a: Authorization) → a: Authorization
     <div style="padding-left: 2em;">
         a.expiration = Timestamp.now()
@@ -162,7 +162,7 @@
     </div>
 
     <!-- acknowledge -->
-    <div style="padding-left: 2em;" id="authorization.acknowledge">
+    <div style="padding-left: 2em;" id="authorization-acknowledge">
     acknowledge(c: controller, s: Subject, a: Authorization)
     <div style="padding-left: 2em;">
         c agrees to authorization a about subject s
@@ -186,7 +186,7 @@
     <p><strong>actions</strong></p>
 
     <!-- use -->
-    <div style="padding-left: 2em;" id="dataUse.use">
+    <div style="padding-left: 2em;" id="dataUse-use">
     use(c: Controller, s: Subject, d: Data, o: Operation, b: Basis) → u: DataUse
     <div style="padding-left: 2em;">
         creates fresh data use u such that
@@ -201,7 +201,7 @@
     </div>
 
     <!-- getBasis -->
-    <div style="padding-left: 2em;" id="dataUse.getBasis">
+    <div style="padding-left: 2em;" id="dataUse-getBasis">
     getBasis(u: DataUse) → u.basis: Basis
     </div>
 
@@ -222,7 +222,7 @@
     <p><strong>actions</strong></p>
 
     <!-- create -->
-    <div style="padding-left: 2em;" id="dataReceipt.create">
+    <div style="padding-left: 2em;" id="dataReceipt-create">
     create(c: Controller, s: Subject, dus: DataUses) → r: DataReceipt
     <div style="padding-left: 2em;">
         creates fresh dataReceipt r such that
