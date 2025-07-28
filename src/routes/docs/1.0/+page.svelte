@@ -1,4 +1,4 @@
-<div class="reset">
+<div>
     <h1>Docs: Traceability Concepts</h1>
     <h2> introduction [Controller, Subject, TraceService] </h2>
     <p><strong>purpose</strong> to introduce a controller to the subject’s traceability service. Also represents registration for the traceability service when the subject and controller are the same.</p>
@@ -242,7 +242,7 @@ p {
     margin: 0;
     padding: 0;
 }
-div:target {
+:target {
   background-color: yellow;
   transition: background-color 0.5s ease;
 }
