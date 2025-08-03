@@ -143,13 +143,15 @@
     <p>recipient: Authorization → Recipient</p>
     <p>data: Authorization → set Data</p>
     <p>expiration: Authorization → Timestamp</p>
+    <p>consent: Authorization → Consent</p>
+    <p>protocol: Authorization → Protocol</p>
     </div>
 
     <p><strong>actions</strong></p>
 
     <!-- authorize -->
     <div style="padding-left: 2em;" id="authorization-authorize">
-    authorize(s: Subject, p: Provider, r: Recipient, d: set Data, e: Expiration) → a: Authorization
+    authorize(s: Subject, p: Provider, r: Recipient, d: set Data, e: Expiration, c: Consent, pr: Protocol) → a: Authorization
     <div style="padding-left: 2em;">
         creates fresh authorization a such that
         <div style="padding-left: 2em;">
@@ -157,7 +159,9 @@
         a.provider = p<br>
         a.recipient = r<br>
         a.data = d<br>
-        a.expiration = e
+        a.expiration = e<br>
+        a.consent = c<br>
+        a.protocol = pr
         </div>
     </div>
     </div>
@@ -171,20 +175,20 @@
     </div>
 
     <div style="padding-left: 2em;" id="authorization-acknowledge">
-    provide(a: Authorization, d:data) 
+    provide(a: Authorization) 
     <div style="padding-left: 2em;">
         a.provider provides a.recipient access to d.
     </div>
     </div>
 
     <div style="padding-left: 2em;" id="authorization-acknowledge">
-    receive(a: Authorization, d: data)
+    receive(a: Authorization)
     <div style="padding-left: 2em;">
         a.recipient pulls d from a.provider.
     </div>
     </div>
 
-    <p><strong>operational principle</strong> after authorize(s,p,r,d,e) and provide(a,d), and until revoke(s,a) or Time.now >= e, p must share d with r.</p>
+    <p><strong>operational principle</strong> after authorize(s,p,r,d,e,c,pr) and provide(a), and until revoke(s,a) or Time.now >= e, p must share d with r.</p>
 
     <h2>dataUse [Controller, Data, Basis, Subject]</h2>
 
