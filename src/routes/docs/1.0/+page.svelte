@@ -1,5 +1,14 @@
 <div>
     <h1>Docs: Traceability Concepts</h1>
+    <h3>Terminology for parties:</h3>
+    <ul>
+        <li>(Data) Subject</li>
+        <li>(Data) Provider</li>
+        <li>(Data) Recipient</li>
+        <li>TraceService</li>
+        <li>(Data) Controller includes Providers and Recipients</li>
+        <li>Party includes Subjects, Providers, and Recipients</li>
+    </ul>
     <h2> introduction [Controller, Subject, TraceService] </h2>
     <p><strong>purpose</strong> to introduce a controller to the subject’s traceability service. Also represents registration for the traceability service when the subject and controller are the same.</p>
     <p><strong>state</strong></p>
@@ -161,14 +170,21 @@
     </div>
     </div>
 
-    <!-- acknowledge -->
     <div style="padding-left: 2em;" id="authorization-acknowledge">
-    acknowledge(c: controller, s: Subject, a: Authorization)
+    provide(a: Authorization, d:data) 
     <div style="padding-left: 2em;">
-        c agrees to authorization a about subject s
+        a.provider provides a.recipient access to d.
     </div>
     </div>
-    <p><strong>operational principle</strong> after authorize(s,p,r,d,e) and acknowledge (c,s,a) (by both provider and recipient), and until revoke(s,a) or Time.now >= e, p must share d with r.</p>
+
+    <div style="padding-left: 2em;" id="authorization-acknowledge">
+    receive(a: Authorization, d: data)
+    <div style="padding-left: 2em;">
+        a.recipient pulls d from a.provider.
+    </div>
+    </div>
+
+    <p><strong>operational principle</strong> after authorize(s,p,r,d,e) and provide(a,d), and until revoke(s,a) or Time.now >= e, p must share d with r.</p>
 
     <h2>dataUse [Controller, Data, Basis, Subject]</h2>
 

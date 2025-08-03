@@ -133,48 +133,40 @@
     "id": 13,
     "party": "Citibank",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
-      "authorization": 11,
-      "controller": 2,
-      "subject": 4
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-provide",
+      "authorization": 11
     },
-    "body": "Citibank agrees to authorization"
+    "body": "Citibank provides LendingClub access to 3mo transaction data"
   },
   {
     "timestamp": "07/02/2025 9:00:00",
     "id": 14,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
-      "authorization": 11,
-      "controller": 1,
-      "subject": 4
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-receive",
+      "authorization": 11
     },
-    "body": "LendingClub acknowledges authorization"
+    "body": "LendingClub pulls 3mo transaction data from Citibank"
   },
   {
     "timestamp": "07/04/2025 10:37:00",
     "id": 15,
     "party": "Eversource",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
-      "authorization": 12,
-      "controller": 3,
-      "subject": 4
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-provide",
+      "authorization": 12
     },
-    "body": "Eversource agrees to authorization"
+    "body": "Eversource provides LendingClub access to 12mo payments data"
   },
   {
     "timestamp": "07/04/2025 15:52:00",
     "id": 16,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
-      "authorization": 12,
-      "controller": 1,
-      "subject": 4
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-receive",
+      "authorization": 12
     },
-    "body": "LendingClub acknowledges authorization"
+    "body": "LendingClub pulls 12mo payments data from Eversource"
   },
   {
     "timestamp": "07/06/2025 10:43:00",
@@ -332,78 +324,78 @@
     "id": 30,
     "party": "Citibank",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-provide",
       "authorization": 27,
       "controller": 1,
       "provider": 2,
       "subject": 4
     },
-    "body": "Citibank agrees to authorization"
+    "body": "Citibank provides LendingClub access to 3mo transaction data"
   },
   {
     "timestamp": "07/09/2025 09:14:00",
     "id": 31,
     "party": "Eversource",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-provide",
       "authorization": 28,
       "controller": 1,
       "provider": 3,
       "subject": 4
     },
-    "body": "Eversource agrees to authorization"
+    "body": "Eversource provides LendingClub access to 12mo payments data"
   },
   {
     "timestamp": "07/09/2025 09:15:00",
     "id": 32,
     "party": "Ally Financial",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-provide",
       "authorization": 29,
       "controller": 1,
       "provider": 20,
       "subject": 4
     },
-    "body": "Ally Financial agrees to authorization"
+    "body": "Ally Financial provides LendingClub access to 12mo payments data"
   },
   {
     "timestamp": "07/09/2025 10:00:00",
     "id": 33,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-receive",
       "authorization": 27,
       "controller": 1,
       "provider": 2,
       "subject": 4
     },
-    "body": "LendingClub acknowledges authorization"
+    "body": "LendingClub pulls 3mo transaction data from Citibank"
   },
   {
     "timestamp": "07/09/2025 10:01:00",
     "id": 34,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-receive",
       "authorization": 28,
       "controller": 1,
       "provider": 3,
       "subject": 4
     },
-    "body": "LendingClub acknowledges authorization"
+    "body": "LendingClub pulls 12mo payments data from Eversource"
   },
   {
     "timestamp": "07/09/2025 10:02:00",
     "id": 35,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-acknowledge",
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#authorization-recieve",
       "authorization": 29,
       "controller": 1,
       "provider": 20,
       "subject": 4
     },
-    "body": "LendingClub acknowledges authorization"
+    "body": "LendingClub pulls 12mo payments data from Ally Financial"
   },
     {
     "timestamp": "07/10/2025 14:42:00",
