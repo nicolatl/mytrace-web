@@ -44,7 +44,7 @@
 
     <p><strong>state</strong></p>
     <div style="padding-left: 2em;">
-    <p>Term: (Data, Purpose)</p>
+    <p><a href="#term">Term</a>: (Data, Purpose)</p>
     <p>ConsentStatus: REQUESTED | ACCEPTED | DENIED | REVOKED | EXPIRED</p>
     <br>
     <p>controller: Consent → Controller</p>
@@ -131,6 +131,59 @@
         </div>
     </div>
     </div>
+
+    <h2 id="term">term [Data, Purpose]</h2>
+
+    <p><strong>purpose</strong> to proclaim a term of data use within a consent</p>
+
+    <p><strong>state</strong></p>
+    <div style="padding-left: 2em;">
+        <p>term.data → Data</p>
+        <div style="padding-left: 2em;">
+            <p>data.type → Type</p>
+            <p>data.typeOntology → TypeOntology</p>
+            <p>(optional for timeseries) data.start → Start</p>
+            <p>(optional for timeseries) data.end → End</p>
+        </div>
+        <p>term.purpose → Purpose</p>
+        <div style="padding-left: 2em;">
+            <p>purpose.name → Name</p>
+            <p>purpose.nameOntology → NameOntology</p>
+        </div>
+    </div>
+
+    <p><strong>actions</strong></p>
+    <div style="padding-left: 2em;">
+        <p>No actions: terms are created within a consent.</p>
+    </div>
+
+
+    <h2 id="ontology-extension">ontologyExtension [Ontology, Name, Extension]</h2>
+
+    <p><strong>purpose</strong> to extend a data or purpose ontology to include new category</p>
+
+    <p><strong>state</strong></p>
+    <div style="padding-left: 2em;">
+    <p>ontology: OntologyExtension → Ontology</p>
+    <p>name: OntologyExtension → Name</p>
+    <p>extension: OntologyExtension → Extension</p>
+    </div>
+
+    <p><strong>actions</strong></p>
+    <div style="padding-left: 2em;" id="ontology-extension-create">
+    create(o: Ontology, n: Name, e: Extension) → oe: OntologyExtension
+    <div style="padding-left: 2em;">
+        creates a new OntologyExtension extending the category n from ontology o with  
+        a new subcategory e
+    </div>
+    </div>
+
+    <p><strong>operational principle</strong></p>
+    <div style="padding-left: 2em;">
+    after create(o,n,e), any party can reference the new category in attestations.
+    </div>
+
+
 
     <h2>authorization [Data, Provider, Recipient, Subject]</h2>
 
