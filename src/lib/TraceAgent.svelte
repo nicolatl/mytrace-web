@@ -1,10 +1,38 @@
-<!-- TraceAgent.svelte -->
-<div class="trace-agent no-issues">
+<script>
+  
+  export let issues = [];
+  export let receiptId;
+  import { onMount } from "svelte";
+  import TaxonomyLink from "$lib/TaxonomyLink.svelte";
+
+  let data = null;
+
+  onMount(async () => {
+    const res = await fetch(`/api/trace?id=${receiptId}`);
+    data = await res.json();
+    issues = data.issues;
+  });
+</script>
+<div class="trace-agent" style="border-left-color: {issues.length > 0 ? 'red' : '#3399ff'}">
   <div class="trace-header">
     <span class="icon">🔍</span>
     <strong>TraceAgent</strong>
   </div>
-  <p class="trace-message">Found no issues in this receipt.</p>
+  {#if issues.length === 0}
+    <p class="trace-message">No problems detected</p>
+  {:else}
+    {#each issues as issue}
+      <div>
+        <p class="trace-message">
+          Used your data for <b><TaxonomyLink term={issue.found} /></b><br />
+          when you only allowed use for <b><TaxonomyLink term={issue.expected} /></b>.
+        </p>
+        <button class="report-button">
+          Report This
+        </button>
+      </div>
+    {/each}
+  {/if}
 </div>
 
 <style>
@@ -13,7 +41,7 @@
   flex-shrink: 0;
   padding: 1rem;
   background-color: white;
-  border-left: 4px solid #3399ff;
+  border-left: 4px solid;
   display: flex;
   flex-direction: column;
   font-size: 0.875rem;

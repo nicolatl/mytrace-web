@@ -91,7 +91,8 @@
             "nameOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
           }
         }
-      ]
+      ],
+      "expiry": "August 1, 2025"
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo transaction data from Citibank in credit decisioning' and expiration August 1, 2025"
   },
@@ -116,7 +117,8 @@
             "nameOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
           }
         }
-      ]
+      ],
+      "expiry": "August 1, 2025"
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 1, 2025"
   },
@@ -283,7 +285,8 @@
             "nameOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
           }
         }
-      ]
+      ],
+      "expiry": "August 8, 2025"
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo transaction data from Citibank in credit decisioning' and expiration August 8, 2025"
   },
@@ -308,9 +311,10 @@
             "nameOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
           }
         }
-      ]
+      ],
+      "expiry": "August 8, 2025"
     },
-    "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 1, 2025"
+    "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 8, 2025"
   },
   {
     "timestamp": "07/08/2025 22:02:00",
@@ -333,7 +337,8 @@
             "nameOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
           }
         }
-      ]
+      ],
+      "expiry": "August 8, 2025"
     },
     "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo car payments data from Ally Financial in credit decisioning' and expiration August 8, 2025"
   },
