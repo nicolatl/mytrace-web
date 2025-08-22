@@ -137,9 +137,16 @@ body {
   color: #1f2937;
 }
 
-.data-provider {
+.data-operation {
   font-size: 0.75rem;
   color: #64748b;
+}
+
+.highlight {
+  background: rgba(255, 0, 0, 0.15);
+  border: 2px solid red;
+  border-radius: 3px;
+  padding: 0 2px;
 }
 
 .consent-card {

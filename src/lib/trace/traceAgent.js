@@ -80,6 +80,7 @@ export default async function traceAgent({ id }) {
     if (!matches) {
       results.issues.push({
         dataUseId: dataUse.id,
+        highlight: ["operation","purpose"],
         expected: declaredPurpose,
         found: operation
       });

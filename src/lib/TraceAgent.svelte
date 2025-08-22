@@ -1,17 +1,7 @@
 <script>
   
   export let issues = [];
-  export let receiptId;
-  import { onMount } from "svelte";
   import TaxonomyLink from "$lib/TaxonomyLink.svelte";
-
-  let data = null;
-
-  onMount(async () => {
-    const res = await fetch(`/api/trace?id=${receiptId}`);
-    data = await res.json();
-    issues = data.issues;
-  });
 </script>
 <div class="trace-agent" style="border-left-color: {issues.length > 0 ? 'red' : '#3399ff'}">
   <div class="trace-header">

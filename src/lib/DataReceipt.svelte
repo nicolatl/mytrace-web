@@ -5,6 +5,7 @@
   import TraceAgent from './TraceAgent.svelte';
   import { logos } from '$lib/data/logos.js';
   import TaxonomyLink from "$lib/TaxonomyLink.svelte";
+  import { onMount } from "svelte";
 
   export let receiptId;         // pass in an attestation id
   export let showReportButton = true;
@@ -70,6 +71,15 @@
   function toggleBasisExpand(i) {
     basisExpanded[i] = !basisExpanded[i];
   }
+
+  let data = null;
+  let issues = [];
+
+  onMount(async () => {
+    const res = await fetch(`/api/trace?id=${receiptId}`);
+    data = await res.json();
+    issues = data.issues;
+  });
 </script>
 
 {#if cardExpanded}
@@ -103,8 +113,8 @@
                 <div class="data-type">
                   <TaxonomyLink term={item.type} />
                 </div>
-                <div class="data-provider">
-                  Used for <TaxonomyLink term={item.usage} />
+                <div class="data-operation">
+                  Used for <TaxonomyLink term={item.usage} highlight={issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("operation"))} />
                 </div>
               </div>
             </div>
@@ -113,14 +123,14 @@
             <div class={`consent-box ${basisExpanded[i] ? 'expanded' : 'collapsed'}`}>
               <button on:click={() => toggleBasisExpand(i)} class="consent-toggle">
                 Your agreement with {controller}
-                {#if basisExpanded[i]}
+                {#if basisExpanded[i] || issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("purpose"))}
                   <ChevronUp size="16" style="margin-left: 0.5rem;" />
                 {:else}
                   <ChevronDown size="16" style="margin-left: 0.5rem;" />
                 {/if}
               </button>
 
-              {#if basisExpanded[i]}
+              {#if basisExpanded[i] || issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("purpose"))}
                 <div class="consent-details">
                   <p class="consent-timestamp">{item.basis.timestamp}</p>
                   <p class="consent-intro">
@@ -128,7 +138,7 @@
                   </p>
                   <ul class="consent-terms">
                     {#each item.basis.terms as [datum, purpose]}
-                      <li><strong><TaxonomyLink term={datum}/></strong> for <em><TaxonomyLink term={purpose}/>
+                      <li><strong><TaxonomyLink term={datum}/></strong> for <em><TaxonomyLink term={purpose} highlight={issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("purpose"))}/>
                       </em></li>
                     {/each}
                   </ul>
@@ -153,7 +163,7 @@
         </div>
       </div>
     </div>
-    <TraceAgent receiptId={receiptId} />
+    <TraceAgent issues={issues} />
   </div>
 {:else}
   <div class="card">
