@@ -19,6 +19,9 @@
   // resolve controller name (party field)
   const controller = receipt?.party ?? "Unknown";
 
+  // resolve action description
+  const action = receipt?.body ?? {controller} + " used your data";
+
   // resolve all dataUse attestations linked to this receipt
   let rows = [];
   if (receipt?.context?.dataUses) {
@@ -88,7 +91,7 @@
       <div class="card-header">
         <img src={logos[(controller ?? "unknown").toLowerCase().replace(/\s/g, "")]} alt="Company logo" width="32" height="32" />
         <div class="title">
-          <h3>{controller} used your data</h3>
+          <h3>{action}</h3>
         </div>
         <div style="margin-left: auto; display: flex; gap: 0.75rem; align-items: center;">
           <span class="timestamp">{receipt.timestamp}</span>
@@ -170,7 +173,7 @@
     <div class="card-header">
       <img src={logos[(controller ?? "unknown").toLowerCase().replace(/\s/g, "")]} alt="Company logo" width="32" height="32" />
       <div class="title">
-        <h3>{controller} used your data</h3>
+        <h3>{action}</h3>
       </div>
       <div style="margin-left: auto; display: flex; gap: 0.75rem; align-items: center;">
         <span class="timestamp">{receipt.timestamp}</span>

@@ -253,7 +253,7 @@
         19
       ]
     },
-    "body": "LendingClub uses data from subject according to basis"
+    "body": "LendingClub offered you a loan"
   },
   {
     "timestamp": "07/07/2025 12:40:00",
@@ -534,6 +534,6 @@
         39
       ]
     },
-    "body": "LendingClub logs data usage with MyTrace"
+    "body": "LendingClub denied your loan application"
   }
 ]
