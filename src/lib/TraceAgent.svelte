@@ -2,7 +2,6 @@
   
   export let issues = [];
   import TaxonomyLink from "$lib/TaxonomyLink.svelte";
-  console.log(issues);
 </script>
 <div class="trace-agent" style="border-left-color: {issues.length > 0 ? 'red' : '#3399ff'}">
   <div class="trace-header">
