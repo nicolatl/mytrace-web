@@ -1,10 +1,11 @@
 <script>
   import { page } from "$app/stores";
+  import { base } from "$app/paths";
 
   let pages = [
-    { url: "/", title: "Data Receipts" },
-    { url: "/warnings", title: "Warnings" },
-    { url: "/reports", title: "Reports" }
+    { url: `${base}/`, title: "Data Receipts" },
+    { url: `${base}/warnings`, title: "Warnings" },
+    { url: `${base}/reports`, title: "Reports" }
   ];
 </script>
 
@@ -14,9 +15,10 @@
 
   <!-- Tabs -->
   {#each pages as p}
-    <a 
-      href={p.url} 
-      class="nav-item { $page.url.pathname === p.url ? 'selected' : '' }"
+    <a
+      href={p.url}
+      class="nav-item"
+      class:selected={$page.url.pathname === p.url}
     >
       {p.title}
     </a>
