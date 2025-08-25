@@ -5,6 +5,7 @@
   import TraceAgent from './TraceAgent.svelte';
   import { logos } from '$lib/data/logos.js';
   import TaxonomyLink from "$lib/TaxonomyLink.svelte";
+  import traceAgent from "$lib/trace/traceAgent.js";
   import { onMount } from "svelte";
 
   export let receiptId;         // pass in an attestation id
@@ -75,13 +76,12 @@
     basisExpanded[i] = !basisExpanded[i];
   }
 
-  let data = null;
+  
   let issues = [];
 
   onMount(async () => {
-    const res = await fetch(`/api/trace?id=${receiptId}`);
-    data = await res.json();
-    issues = data.issues;
+    const result = await traceAgent({ id: receiptId });
+    issues = result.issues ?? [];
   });
 </script>
 
@@ -141,8 +141,7 @@
                   </p>
                   <ul class="consent-terms">
                     {#each item.basis.terms as [datum, purpose]}
-                      <li><strong><TaxonomyLink term={datum}/></strong> for <em><TaxonomyLink term={purpose} highlight={issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("purpose"))}/>
-                      </em></li>
+                      <li><strong><TaxonomyLink term={datum}/></strong> for <em><TaxonomyLink term={purpose} highlight={issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("purpose"))}/></em></li>
                     {/each}
                   </ul>
                   <p class="consent-expiry">

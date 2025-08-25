@@ -2,6 +2,7 @@
   
   export let issues = [];
   import TaxonomyLink from "$lib/TaxonomyLink.svelte";
+  console.log(issues);
 </script>
 <div class="trace-agent" style="border-left-color: {issues.length > 0 ? 'red' : '#3399ff'}">
   <div class="trace-header">
@@ -14,7 +15,7 @@
     {#each issues as issue}
       <div>
         <p class="trace-message">
-          Used your data for <b><TaxonomyLink term={issue.found} /></b><br />
+          Your data was used for <b><TaxonomyLink term={issue.found} /></b><br />
           when you only allowed use for <b><TaxonomyLink term={issue.expected} /></b>.
         </p>
         <button class="report-button">
