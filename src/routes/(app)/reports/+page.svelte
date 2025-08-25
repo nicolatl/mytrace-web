@@ -1,2 +1,1 @@
-<h1>View Reports</h1>
-This feature is coming soon
+The data use "reports" page is coming soon!

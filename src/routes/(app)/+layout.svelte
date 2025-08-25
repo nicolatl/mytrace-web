@@ -4,8 +4,8 @@
 
   let pages = [
     { url: `${base}/`, title: "Data Receipts" },
-    { url: `${base}/warnings`, title: "Warnings" },
-    { url: `${base}/reports`, title: "Reports" }
+    { url: `${base}/warnings/`, title: "Warnings" },
+    { url: `${base}/reports/`, title: "Reports" }
   ];
 </script>
 
