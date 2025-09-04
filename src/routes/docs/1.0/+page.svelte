@@ -38,7 +38,7 @@
     </div>
     <p><strong>operational principle</strong> after introduce(s,c,t) and acknowledge (c,s,t), c and s must both use t to trace their data interactions.</p>
 
-    <h2>consent [Controller, Data, Purpose, Subject]</h2>
+    <h2>consent [Controller, Subject, Terms]</h2>
 
     <p><strong>purpose</strong> to form and manage consent agreements governing a controller’s use of a subject’s personal data</p>
 
@@ -185,28 +185,28 @@
 
 
 
-    <h2>authorization [Data, Provider, Recipient, Subject]</h2>
+    <h2>dataAuthorization [Data, Provider, Recipient, Subject]</h2>
 
     <p><strong>purpose</strong> to authorize a provider to share data about a subject with a recipient</p>
 
     <p><strong>state</strong></p>
     <div style="padding-left: 2em;">
-    <p>subject: Authorization → Subject</p>
-    <p>provider: Authorization → Provider</p>
-    <p>recipient: Authorization → Recipient</p>
-    <p>data: Authorization → set Data</p>
-    <p>expiration: Authorization → Timestamp</p>
-    <p>consent: Authorization → Consent</p>
-    <p>protocol: Authorization → Protocol</p>
+    <p>subject: DataAuthorization → Subject</p>
+    <p>provider: DataAuthorization → Provider</p>
+    <p>recipient: DataAuthorization → Recipient</p>
+    <p>data: DataAuthorization → set Data</p>
+    <p>expiration: DataAuthorization → Timestamp</p>
+    <p>consent: DataAuthorization → Consent</p>
+    <p>protocol: DataAuthorization → Protocol</p>
     </div>
 
     <p><strong>actions</strong></p>
 
     <!-- authorize -->
-    <div style="padding-left: 2em;" id="authorization-authorize">
+    <div style="padding-left: 2em;" id="dataAuthorization-authorize">
     authorize(s: Subject, p: Provider, r: Recipient, d: set Data, e: Expiration, c: Consent, pr: Protocol) → a: Authorization
     <div style="padding-left: 2em;">
-        creates fresh authorization a such that
+        creates fresh dataAuthorization a such that
         <div style="padding-left: 2em;">
         a.subject = s<br>
         a.provider = p<br>
@@ -220,22 +220,22 @@
     </div>
 
     <!-- revoke -->
-    <div style="padding-left: 2em;" id="authorization-revoke">
-    revoke(s: Subject, a: Authorization) → a: Authorization
+    <div style="padding-left: 2em;" id="dataAuthorization-revoke">
+    revoke(s: Subject, a: DataAuthorization) → a: DataAuthorization
     <div style="padding-left: 2em;">
         a.expiration = Timestamp.now()
     </div>
     </div>
 
-    <div style="padding-left: 2em;" id="authorization-acknowledge">
-    provide(a: Authorization) 
+    <div style="padding-left: 2em;" id="dataAuthorization-grant">
+    grant(a: DataAuthorization) 
     <div style="padding-left: 2em;">
         a.provider provides a.recipient access to d.
     </div>
     </div>
 
-    <div style="padding-left: 2em;" id="authorization-acknowledge">
-    receive(a: Authorization)
+    <div style="padding-left: 2em;" id="dataAuthorization-access">
+    access(a: DataAuthorization)
     <div style="padding-left: 2em;">
         a.recipient pulls d from a.provider.
     </div>
@@ -278,7 +278,7 @@
     getBasis(u: DataUse) → u.basis: Basis
     </div>
 
-    <p><strong>operational principle</strong>pair use and basis</p>
+    <p><strong>operational principle</strong> pair use and basis</p>
 
 
     <h2>dataReceipt [Controller, DataUses, Subject]</h2>
@@ -310,13 +310,28 @@
     <p><strong>operational principle</strong> controllers create data receipts for a subject to view through a traceService.</p>
 
 </div>
+<script>
+  import { onMount } from "svelte";
+
+  function highlightHash() {
+    const target = document.querySelector(location.hash);
+    if (target) {
+      target.classList.add("hash-highlight");
+      setTimeout(() => target.classList.remove("hash-highlight"), 1500);
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  onMount(() => {
+    highlightHash();
+    window.addEventListener("hashchange", highlightHash);
+    return () => window.removeEventListener("hashchange", highlightHash);
+  });
+</script>
+
 <style>
-p {
+  p {
     margin: 0;
     padding: 0;
-}
-:target {
-  background-color: yellow;
-  transition: background-color 0.5s ease;
-}
+  }
 </style>
