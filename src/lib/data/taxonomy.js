@@ -4,7 +4,7 @@ export const taxonomy = {
     label: "Bank account data",
     href: "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account"
   },
-  "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=basic%20system%20operations.-,finance,-%2D/credit_decisioning": {
+  "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning": {
     label: "credit decisioning",
     href: `${base}/extension/7`
   },

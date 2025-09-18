@@ -157,27 +157,6 @@
         <p>No actions: terms are created within a consent.</p>
     </div>
 
-
-    <h2 id="ontology-extension">ontologyExtension [Ontology, Name, Extension]</h2>
-
-    <p><strong>purpose</strong> to extend a data or purpose ontology to include new category</p>
-
-    <p><strong>state</strong></p>
-    <div style="padding-left: 2em;">
-    <p>ontology: OntologyExtension → Ontology</p>
-    <p>name: OntologyExtension → Name</p>
-    <p>extension: OntologyExtension → Extension</p>
-    </div>
-
-    <p><strong>actions</strong></p>
-    <div style="padding-left: 2em;" id="ontology-extension-create">
-    create(o: Ontology, n: Name, e: Extension) → oe: OntologyExtension
-    <div style="padding-left: 2em;">
-        creates a new OntologyExtension extending the category n from ontology o with  
-        a new subcategory e
-    </div>
-    </div>
-
     <p><strong>operational principle</strong></p>
     <div style="padding-left: 2em;">
     after create(o,n,e), any party can reference the new category in attestations.

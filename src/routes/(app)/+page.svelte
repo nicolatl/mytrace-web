@@ -1,6 +1,6 @@
 <script> 
     import DataReceipt from "$lib/DataReceipt.svelte";
 </script>
-<DataReceipt receiptId={40} />
-<DataReceipt receiptId={20} />
+<DataReceipt receiptId={39} />
+<DataReceipt receiptId={19} />
 
