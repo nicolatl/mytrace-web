@@ -29,7 +29,6 @@ export default async function traceAgent({ id }) {
     //
     // --- declaredPurpose resolution ---
     // NOTE: This code is pretty much copied from DataReceipt.svelte 
-    const data = getById(dataUse.context.data);
     const terms = [];
     for(const term of consentRequest.context.terms) { // get all terms in the consent cited as a basis
       terms.push(getById(term));

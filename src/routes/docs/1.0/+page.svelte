@@ -9,8 +9,23 @@
         <li>(Data) Controller includes Providers and Recipients</li>
         <li>Party includes Subjects, Providers, and Recipients</li>
     </ul>
+    <h2> identification [Identifier] </h2>
+    <p><strong>purpose</strong> to identify different parties</p>
+    <p><strong>state</strong></p>
+    <div style="padding-left: 2em;">
+    <p>identifier: Identification → Identifier</p>
+    </div>
+    <p><strong>actions</strong></p>
+    <div style="padding-left: 2em;" id="identification-create">
+        create(i: identifier) → ii: Identification
+        <div style="padding-left: 2em;">
+            creates a new identification associated with some link i
+        </div>
+    </div>
+    <p><strong>operational principle</strong> associates an identity with an identifier link e.g. mailto</p>
+
     <h2> introduction [Controller, Subject, TraceService] </h2>
-    <p><strong>purpose</strong> to introduce a controller to the subject’s traceability service. Also represents registration for the traceability service when the subject and controller are the same.</p>
+    <p><strong>purpose</strong> to introduce a controller to the subject’s traceability service.</p>
     <p><strong>state</strong></p>
     <div style="padding-left: 2em;">
     <p>subject: Introduction → Subject</p>

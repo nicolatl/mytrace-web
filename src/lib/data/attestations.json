@@ -4,36 +4,40 @@
     "id": 1,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.lendingclub.com/"
     },
-    "body": "LendingClub introduces themselves to MyTrace"
+    "body": "Identification created for LendingClub"
   },
   {
     "timestamp": "01/18/2025 7:05:00",
     "id": 2,
     "party": "CitiBank",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.citi.com/"
     },
-    "body": "CitiBank introduces themselves to MyTrace"
+    "body": "Identification created for CitiBank"
   },
   {
     "timestamp": "04/03/2025 15:52:00",
     "id": 3,
     "party": "Eversource",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.eversource.com/"
     },
-    "body": "Eversource introduces themselves to MyTrace"
+    "body": "Identification created for Eversource"
   },
   {
     "timestamp": "05/23/2025 19:49:00",
     "id": 4,
     "party": "Jane Smith",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "mailto:jane.smith@gmail.com"
     },
-    "body": "Jane Smith introduces themselves to MyTrace"
+    "body": "Identification created for Jane Smith"
   },
   {
     "timestamp": "07/01/2025 22:02:00",
@@ -253,9 +257,10 @@
     "id": 22,
     "party": "Ally Financial",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.ally.com/"
     },
-    "body": "Ally Financial introduces themselves to MyTrace"
+    "body": "Identification created for Ally Financial"
   },
   {
     "timestamp": "07/08/2025 22:02:00",
