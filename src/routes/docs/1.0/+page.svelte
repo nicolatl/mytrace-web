@@ -44,14 +44,11 @@
 
     <p><strong>state</strong></p>
     <div style="padding-left: 2em;">
-    <p><a href="#term">Term</a>: (Data, Purpose)</p>
-    <p>ConsentStatus: REQUESTED | ACCEPTED | DENIED | REVOKED | EXPIRED</p>
-    <br>
     <p>controller: Consent → Controller</p>
     <p>subject: Consent → Subject</p>
     <p>terms: Consent → set Term</p>
     <p>expiry: Consent → Timestamp</p>
-    <p>status: Consent → ConsentStatus</p>
+    <p>status: Consent → ConsentStatus (REQUESTED | ACCEPTED | DENIED | REVOKED | EXPIRED)</p>
     </div>
 
     <p><strong>actions</strong></p>
@@ -132,34 +129,55 @@
     </div>
     </div>
 
-    <h2 id="term">term [Data, Purpose]</h2>
+    <h2 id="term">data [Type, TypeOntology, Provider, Subject, (Start, End)]</h2>
 
-    <p><strong>purpose</strong> to proclaim a term of data use within a consent</p>
+    <p><strong>purpose</strong> to identify a specific dataset.</p>
 
     <p><strong>state</strong></p>
     <div style="padding-left: 2em;">
-        <p>term.data → Data</p>
-        <div style="padding-left: 2em;">
-            <p>data.type → Type</p>
-            <p>data.typeOntology → TypeOntology</p>
-            <p>(optional for timeseries) data.start → Start</p>
-            <p>(optional for timeseries) data.end → End</p>
-        </div>
-        <p>term.purpose → Purpose</p>
-        <div style="padding-left: 2em;">
-            <p>purpose.name → Name</p>
-            <p>purpose.nameOntology → NameOntology</p>
-        </div>
+        <p>data.dataType → DataType</p>
+        <p>data.dataTypeOntology → DataTypeOntology</p>
+        <p>data.controller → Controller</p>
+        <p>data.subject → Subject</p>
+        <p>(optional for timeseries) data.start → Start</p>
+        <p>(optional for timeseries) data.end → End</p>
     </div>
 
     <p><strong>actions</strong></p>
+    <div style="padding-left: 2em;" id="data-define">
+    define(dt: DataType, dto: DataTypeOntology, c: Controller, s: Subject [st: Start, e: End]) 
     <div style="padding-left: 2em;">
-        <p>No actions: terms are created within a consent.</p>
+        defines a dataset, with data of type dt as defined by dto, collected by c concerning s
+    </div>
     </div>
 
     <p><strong>operational principle</strong></p>
     <div style="padding-left: 2em;">
-    after create(o,n,e), any party can reference the new category in attestations.
+    after define(dt, dto, c, s), the defined dataset can be referenced in the future.
+    </div>
+
+    <h2 id="term">term [Data, Purpose, PurposeOntology]</h2>
+
+    <p><strong>purpose</strong> to define a clear and specific purpose for which a specific set of data could be used.</p>
+
+    <p><strong>state</strong></p>
+    <div style="padding-left: 2em;">
+        <p>term.data → Data</p>
+        <p>term.purpose → Purpose</p>
+        <p>term.purposeOntology → PurposeOntology</p>
+    </div>
+
+    <p><strong>actions</strong></p>
+    <div style="padding-left: 2em;" id="term-define">
+    define(d: Data, p: Purpose, po: PurposeOntology) 
+    <div style="padding-left: 2em;">
+        defines a dataset, with data of type t as defined by to, collected by p concerning s
+    </div>
+    </div>
+
+    <p><strong>operational principle</strong></p>
+    <div style="padding-left: 2em;">
+    after define(d,p,po), the defined term can be referenced in consent-related attestations.
     </div>
 
 

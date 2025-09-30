@@ -30,36 +30,34 @@
       const use = getById(useId);
       if (!use) return null;
 
-      const basisAccept = getById(use.context.basis);
-      const consentReq = basisAccept ? getById(basisAccept.context.consent) : null;
-      const dataAuth = getById(use.context.data);
-      const provider = getById(dataAuth.context.provider);
-
-      // resolve declared purpose
-      let purpose = consentReq?.context?.terms?.[0]?.purpose?.name;
-      if (typeof purpose === "number") {
-        const purposeExt = getById(purpose);
-        purpose = `${purposeExt?.context?.name}/${purposeExt?.context?.extension}`;
-      }
-
       // resolve declared operation
       let operation = use.context?.operation;
-      if (typeof operation === "number") {
-        const operationExt = getById(operation);
-        operation = `${operationExt?.context?.name}/${operationExt?.context?.extension}`;
+
+      //resolve relevant basis term
+      const basisAccept = getById(use.context.basis);
+      const consentReq = basisAccept ? getById(basisAccept.context.consent) : null;
+      const data = getById(use.context.data);
+      const provider = getById(data.context.controller);
+      const terms = [];
+      for(const term of consentReq.context.terms) { // get all terms in the consent cited as a basis
+        terms.push(getById(term));
+      }
+      let relevant_term = null;
+      for(const term of terms){
+        if(use.context.data === term.context.data){ // match the relevant term to the data that was used (NOTE: only works for 1:1 data:purpose consent structure)
+          relevant_term = [data.context.dataType, term.context.purpose];
+        }
       }
 
       return {
         id: use.id,
-        type: consentReq.context.terms[0].data.type ?? "Unknown",
+        dataType: data.context.dataType ?? "Unknown",
         provider: provider?.party ?? "Unknown",
         logo: logos[(provider?.party ?? "unknown").toLowerCase().replace(/\s/g, "")],
         usage: operation ?? "Unknown",
         basis: {
           timestamp: basisAccept?.timestamp ?? "unknown",
-          terms: [
-            [consentReq.context.terms[0].data.type ?? "Unknown", purpose ?? "unknown"]
-          ],
+          terms: [relevant_term], //right now we only pass the term that matches the data type
           expiry: consentReq?.context?.expiry ?? "unknown"
         }
       };
@@ -82,6 +80,7 @@
   onMount(async () => {
     const result = await traceAgent({ id: receiptId });
     issues = result.issues ?? [];
+    console.log(result);
   });
 </script>
 
@@ -114,7 +113,7 @@
               <img src={item.logo} alt={item.provider} class="data-logo" />
               <div class="data-info">
                 <div class="data-type">
-                  <TaxonomyLink term={item.type} />
+                  <TaxonomyLink term={item.dataType} />
                 </div>
                 <div class="data-operation">
                   Used for <TaxonomyLink term={item.usage} highlight={issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("operation"))} />

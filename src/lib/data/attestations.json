@@ -63,204 +63,194 @@
     "id": 7,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
-      "controller": 1,
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#data-define",
+      "dataType": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account",
+      "dataTypeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+      "controller": 2,
       "subject": 4,
-      "terms": [
-        {
-          "data": {
-            "start": "04/01/2025 22:28:00",
-            "end": "07/01/2025 22:28:00",
-            "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account",
-            "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-          },
-          "purpose": {
-            "name": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
-            "nameOntology": "https://nicolatl.github.io/mytrace-web/ontology"
-          }
-        }
-      ],
-      "expiry": "08/01/2025 00:00:00"
+      "start": "04/01/2025 22:28:00",
+      "end": "07/01/2025 22:28:00"
     },
-    "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo transaction data from Citibank in credit decisioning' and expiration August 1, 2025"
+    "body": "LendingClub defines a dataset of 3mo transaction data from Citibank."
+  },
+  {
+    "timestamp": "07/01/2025 22:28:01",
+    "id": 8,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 7,
+      "purpose": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
+      "purposeOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+    },
+    "body": "LendingClub defines term to use 3mo transaction data from Citibank in credit decisioning"
   },
   {
     "timestamp": "07/01/2025 22:28:00",
-    "id": 8,
+    "id": 9,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#data-define",
+      "dataType": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
+      "dataTypeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+      "controller": 3,
+      "subject": 4,
+      "start": "07/01/2024 22:28:00",
+      "end": "07/01/2025 22:28:00"
+    },
+    "body": "LendingClub defines a dataset of 12mo payments data from Eversource."
+  },
+  {
+    "timestamp": "07/01/2025 22:28:01",
+    "id": 10,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 9,
+      "purpose": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
+      "purposeOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+    },
+    "body": "LendingClub defines term to use 12mo payments data from Eversource in credit decisioning"
+  },
+  {
+    "timestamp": "07/01/2025 22:28:02",
+    "id": 11,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4,
-      "terms": [
-        {
-          "data": {
-            "start": "07/01/2024 22:28:00",
-            "end": "07/01/2025 22:28:00",
-            "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
-            "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-          },
-          "purpose": {
-            "name": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
-            "nameOntology": "https://nicolatl.github.io/mytrace-web/ontology"
-          }
-        }
-      ],
+      "terms": [8,10],
       "expiry": "08/01/2025 00:00:00"
     },
-    "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 1, 2025"
-  },
-  {
-    "timestamp": "07/01/2025 22:29:00",
-    "id": 9,
-    "party": "Jane Smith",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
-      "consent": 7,
-      "controller": 1,
-      "subject": 4
-    },
-    "body": "Jane Smith accepts consent from LendingCLub"
-  },
-  {
-    "timestamp": "07/01/2025 22:29:00",
-    "id": 10,
-    "party": "Jane Smith",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
-      "consent": 8,
-      "controller": 1,
-      "subject": 4
-    },
-    "body": "Jane Smith accepts consent from LendingCLub"
-  },
-  {
-    "timestamp": "07/01/2025 22:29:00",
-    "id": 11,
-    "party": "Jane Smith",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-authorize",
-      "consent": 9,
-      "recipient": 1,
-      "provider": 2,
-      "subject": 4,
-      "protocol": "https://developer.financialdataexchange.org/fdx-api-v6-2-0",
-      "data": {
-        "start": "04/01/2025 22:28:00",
-        "end": "07/01/2025 22:28:00",
-        "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account",
-        "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-      },
-      "expiry": "08/01/2025 00:00:00"
-    },
-    "body": "Jane Smith authorizes 3mo transaction data from Citibank to be sent to LendingCLub according to the consent"
+    "body": "LendingClub requests consent from Jane Smith with terms to use 3mo transactions data from Citibank and 12mo utility payments data from Eversource in credit decisioning. It will expire on August 1, 2025"
   },
   {
     "timestamp": "07/01/2025 22:29:00",
     "id": 12,
     "party": "Jane Smith",
     "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
+      "consent": 11,
+      "controller": 1,
+      "subject": 4
+    },
+    "body": "Jane Smith accepts consent from LendingCLub"
+  },
+  {
+    "timestamp": "07/01/2025 22:29:00",
+    "id": 13,
+    "party": "Jane Smith",
+    "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-authorize",
-      "consent": 10,
+      "consent": 11,
+      "recipient": 1,
+      "provider": 2,
+      "subject": 4,
+      "protocol": "https://developer.financialdataexchange.org/fdx-api-v6-2-0",
+      "data": 7,
+      "expiry": "08/01/2025 00:00:00"
+    },
+    "body": "Jane Smith authorizes 3mo transaction data from Citibank to be sent to LendingCLub according to the consent"
+  },
+  {
+    "timestamp": "07/01/2025 22:29:00",
+    "id": 14,
+    "party": "Jane Smith",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-authorize",
+      "consent": 11,
       "recipient": 1,
       "provider": 3,
       "subject": 4,
       "protocol": "https://developer.financialdataexchange.org/fdx-api-v6-2-0",
-      "data": {
-        "start": "07/01/2024 22:28:00",
-        "end": "07/01/2025 22:28:00",
-        "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
-        "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-      },
+      "data": 9,
       "expiry": "08/01/2025 00:00:00"
     },
     "body": "Jane Smith authorizes 12mo payments data from Eversource to be sent to LendingCLub according to the consent"
   },
   {
     "timestamp": "07/01/2025 23:55:00",
-    "id": 13,
+    "id": 15,
     "party": "Citibank",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-grant",
-      "dataAuthorization": 11
+      "dataAuthorization": 13
     },
     "body": "Citibank provides LendingClub access to 3mo transaction data"
   },
   {
     "timestamp": "07/02/2025 9:00:00",
-    "id": 14,
+    "id": 16,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-access",
-      "dataAuthorization": 11
+      "dataAuthorization": 13
     },
     "body": "LendingClub pulls 3mo transaction data from Citibank"
   },
   {
     "timestamp": "07/04/2025 10:37:00",
-    "id": 15,
+    "id": 17,
     "party": "Eversource",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-grant",
-      "dataAuthorization": 12
+      "dataAuthorization": 14
     },
     "body": "Eversource provides LendingClub access to 12mo payments data"
   },
   {
     "timestamp": "07/04/2025 15:52:00",
-    "id": 16,
-    "party": "LendingClub",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-access",
-      "dataAuthorization": 12
-    },
-    "body": "LendingClub pulls 12mo payments data from Eversource"
-  },
-  {
-    "timestamp": "07/06/2025 10:43:00",
-    "id": 17,
-    "party": "LendingClub",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
-      "basis": 9,
-      "data": 11,
-      "subject": 4,
-      "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
-      "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
-    },
-    "body": "LendingClub uses data from subject according to basis"
-  },
-  {
-    "timestamp": "07/06/2025 10:43:00",
     "id": 18,
     "party": "LendingClub",
     "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
-      "basis": 10,
-      "data": 12,
-      "subject": 4,
-      "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
-      "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-access",
+      "dataAuthorization": 14
     },
-    "body": "LendingClub uses data from subject according to basis"
+    "body": "LendingClub pulls 12mo payments data from Eversource"
   },
   {
     "timestamp": "07/06/2025 10:43:00",
     "id": 19,
     "party": "LendingClub",
     "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
+      "basis": 12,
+      "data": 7,
+      "subject": 4,
+      "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
+      "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+    },
+    "body": "LendingClub uses data from subject according to basis"
+  },
+  {
+    "timestamp": "07/06/2025 10:43:00",
+    "id": 20,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
+      "basis": 12,
+      "data": 9,
+      "subject": 4,
+      "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
+      "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+    },
+    "body": "LendingClub uses data from subject according to basis"
+  },
+  {
+    "timestamp": "07/06/2025 10:43:00",
+    "id": 21,
+    "party": "LendingClub",
+    "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt-create",
       "subject": 4,
-      "dataUses": [
-        17,
-        18
-      ]
+      "dataUses": [19,20]
     },
     "body": "LendingClub offered you a loan"
   },
   {
     "timestamp": "07/07/2025 12:40:00",
-    "id": 20,
+    "id": 22,
     "party": "Ally Financial",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce"
@@ -269,113 +259,105 @@
   },
   {
     "timestamp": "07/08/2025 22:02:00",
-    "id": 21,
-    "party": "LendingClub",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
-      "controller": 1,
-      "subject": 4,
-      "terms": [
-        {
-          "data": {
-            "start": "04/08/2025 22:02:00",
-            "end": "07/08/2025 22:02:00",
-            "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account",
-            "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-          },
-          "purpose": {
-            "name": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
-            "nameOntology": "https://nicolatl.github.io/mytrace-web/ontology"
-          }
-        }
-      ],
-      "expiry": "08/08/2025 00:00:00"
-    },
-    "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo transaction data from Citibank in credit decisioning' and expiration August 8, 2025"
-  },
-  {
-    "timestamp": "07/08/2025 22:02:00",
-    "id": 22,
-    "party": "LendingClub",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
-      "controller": 1,
-      "subject": 4,
-      "terms": [
-        {
-          "data": {
-            "start": "07/08/2024 22:02:00",
-            "end": "07/08/2025 22:02:00",
-            "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
-            "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-          },
-          "purpose": {
-            "name": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
-            "nameOntology": "https://nicolatl.github.io/mytrace-web/ontology"
-          }
-        }
-      ],
-      "expiry": "08/08/2025 00:00:00"
-    },
-    "body": "LendingClub requests consent from Jane Smith with terms 'use 12mo utility payments data from Eversource in credit decisioning' and expiration August 8, 2025"
-  },
-  {
-    "timestamp": "07/08/2025 22:02:00",
     "id": 23,
     "party": "LendingClub",
     "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#data-define",
+      "dataType": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account",
+      "dataTypeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+      "controller": 2,
+      "subject": 4,
+      "start": "04/08/2025 22:02:00",
+      "end": "07/08/2025 22:02:00"
+    },
+    "body": "LendingClub defines a dataset of 3mo transactions data from Citibank."
+  },
+  {
+    "timestamp": "07/08/2025 22:02:01",
+    "id": 24,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 23,
+      "purpose": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
+      "purposeOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+    },
+    "body": "LendingClub defines term to use 3mo transaction data from Citibank in credit decisioning"
+  },
+  {
+    "timestamp": "07/08/2025 22:02:00",
+    "id": 25,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#data-define",
+      "dataType": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
+      "dataTypeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+      "controller": 3,
+      "subject": 4,
+      "start": "07/08/2024 22:02:00",
+      "end": "07/08/2025 22:02:00"
+    },
+    "body": "LendingClub defines a dataset of 12mo payments data from Eversource."
+  },
+  {
+    "timestamp": "07/08/2025 22:02:01",
+    "id": 26,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 25,
+      "purpose": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
+      "purposeOntology": "https://nicolatl.github.io/mytrace-web/ontology"
+    },
+    "body": "LendingClub defines term to use 12mo payments data from Eversource in credit decisioning"
+  },
+  {
+    "timestamp": "07/08/2025 22:02:00",
+    "id": 27,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#data-define",
+      "dataType": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
+      "dataTypeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+      "controller": 22,
+      "subject": 4,
+      "start": "07/08/2024 22:02:00",
+      "end": "07/08/2025 22:02:00"
+    },
+    "body": "LendingClub defines a dataset of 12mo payments data from Ally Financial."
+  },
+  {
+    "timestamp": "07/08/2025 22:02:01",
+    "id": 28,
+    "party": "LendingClub",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 27,
+      "purpose": "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=and%20legitimate%20purposes-,marketing,-%2D",
+      "purposeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
+    },
+    "body": "LendingClub defines term to use 12mo payments data from Ally Financial in marketing"
+  },
+  {
+    "timestamp": "07/08/2025 22:02:02",
+    "id": 29,
+    "party": "LendingClub",
+    "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
       "controller": 1,
       "subject": 4,
-      "terms": [
-        {
-          "data": {
-            "start": "04/08/2025 22:02:00",
-            "end": "07/08/2025 22:02:00",
-            "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
-            "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-          },
-          "purpose": {
-            "name": "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=and%20legitimate%20purposes-,marketing,-%2D",
-            "nameOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
-          }
-        }
-      ],
+      "terms": [24,26,28],
       "expiry": "08/08/2025 00:00:00"
     },
-    "body": "LendingClub requests consent from Jane Smith with terms 'use 3mo car payments data from Ally Financial in credit decisioning' and expiration August 8, 2025"
+    "body": "LendingClub requests consent from Jane Smith to use 3mo bank transaction data from Citibank, 12mo payments data from Eversource, and 12mo payments data from Ally Financial in credit decisioning' and expiration August 8, 2025"
   },
   {
     "timestamp": "07/08/2025 22:05:00",
-    "id": 24,
+    "id": 30,
     "party": "Jane Smith",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
-      "consent": 21,
-      "controller": 1,
-      "subject": 4
-    },
-    "body": "Jane Smith accepts consent from LendingClub"
-  },
-  {
-    "timestamp": "07/08/2025 22:05:00",
-    "id": 25,
-    "party": "Jane Smith",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
-      "consent": 22,
-      "controller": 1,
-      "subject": 4
-    },
-    "body": "Jane Smith accepts consent from LendingClub"
-  },
-  {
-    "timestamp": "07/08/2025 22:05:00",
-    "id": 26,
-    "party": "Jane Smith",
-    "context": {
-      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
-      "consent": 23,
+      "consent": 29,
       "controller": 1,
       "subject": 4
     },
@@ -383,135 +365,120 @@
   },
   {
     "timestamp": "07/08/2025 22:06:00",
-    "id": 27,
+    "id": 31,
     "party": "Jane Smith",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-authorize",
-      "consent": 24,
+      "consent": 29,
       "controller": 1,
       "provider": 2,
       "subject": 4,
       "protocol": "https://developer.financialdataexchange.org/fdx-api-v6-2-0",
-      "data": {
-        "start": "04/08/2025 22:02:00",
-        "end": "07/08/2025 22:02:00",
-        "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.financial.bank_account",
-        "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-      },
+      "data": 23,
       "expiry": "08/08/2025 00:00:00"
     },
     "body": "Jane Smith authorizes 3mo transaction data from Citibank to be sent to LendingClub according to the consent"
   },
   {
     "timestamp": "07/08/2025 22:06:00",
-    "id": 28,
+    "id": 32,
     "party": "Jane Smith",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-authorize",
-      "consent": 25,
+      "consent": 29,
       "controller": 1,
       "provider": 3,
       "subject": 4,
       "protocol": "https://developer.financialdataexchange.org/fdx-api-v6-2-0",
-      "data": {
-        "start": "07/08/2024 22:02:00",
-        "end": "07/08/2025 22:02:00",
-        "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
-        "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-      },
+      "data": 25,
       "expiry": "08/08/2025 00:00:00"
     },
     "body": "Jane Smith authorizes 12mo utility payments data from Eversource to be sent to LendingClub according to the consent"
   },
   {
     "timestamp": "07/08/2025 22:06:00",
-    "id": 29,
+    "id": 33,
     "party": "Jane Smith",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-authorize",
-      "consent": 26,
+      "consent": 29,
       "controller": 1,
-      "provider": 20,
+      "provider": 22,
       "subject": 4,
       "protocol": "https://developer.financialdataexchange.org/fdx-api-v6-2-0",
-      "data": {
-        "start": "04/08/2025 22:02:00",
-        "end": "07/08/2025 22:02:00",
-        "type": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=configuration%20and%20setting.-,user.payment,-user",
-        "typeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/"
-      },
+      "data": 27,
       "expiry": "08/08/2025 00:00:00"
     },
     "body": "Jane Smith authorizes 3mo car payments data from Ally Financial to be sent to LendingClub according to the consent"
   },
   {
     "timestamp": "07/09/2025 09:12:00",
-    "id": 30,
+    "id": 34,
     "party": "Citibank",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-grant",
-      "dataAuthorization": 27
+      "dataAuthorization": 31
     },
     "body": "Citibank provides LendingClub access to 3mo transaction data"
   },
   {
     "timestamp": "07/09/2025 09:14:00",
-    "id": 31,
+    "id": 35,
     "party": "Eversource",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-grant",
-      "dataAuthorization": 28
+      "dataAuthorization": 32
     },
     "body": "Eversource provides LendingClub access to 12mo payments data"
   },
   {
     "timestamp": "07/09/2025 09:15:00",
-    "id": 32,
+    "id": 36,
     "party": "Ally Financial",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-grant",
-      "dataAuthorization": 29
+      "dataAuthorization": 33
     },
     "body": "Ally Financial provides LendingClub access to 12mo payments data"
   },
   {
     "timestamp": "07/09/2025 10:00:00",
-    "id": 33,
+    "id": 37,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-access",
-      "dataAuthorization": 27
+      "dataAuthorization": 31
     },
     "body": "LendingClub pulls 3mo transaction data from Citibank"
   },
   {
     "timestamp": "07/09/2025 10:01:00",
-    "id": 34,
+    "id": 38,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-access",
-      "dataAuthorization": 28
+      "dataAuthorization": 32
     },
     "body": "LendingClub pulls 12mo payments data from Eversource"
   },
   {
     "timestamp": "07/09/2025 10:02:00",
-    "id": 35,
+    "id": 39,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataAuthorization-access",
-      "dataAuthorization": 29
+      "dataAuthorization": 33
     },
     "body": "LendingClub pulls 12mo payments data from Ally Financial"
   },
   {
     "timestamp": "07/10/2025 14:42:00",
-    "id": 36,
+    "id": 40,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
-      "basis": 24,
-      "data": 27,
+      "basis": 30,
+      "data": 23,
       "subject": 4,
       "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
       "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
@@ -520,12 +487,12 @@
   },
   {
     "timestamp": "07/10/2025 14:43:00",
-    "id": 37,
+    "id": 41,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
-      "basis": 25,
-      "data": 28,
+      "basis": 30,
+      "data": 25,
       "subject": 4,
       "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
       "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
@@ -534,12 +501,12 @@
   },
   {
     "timestamp": "07/10/2025 14:44:00",
-    "id": 38,
+    "id": 42,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
-      "basis": 26,
-      "data": 29,
+      "basis": 30,
+      "data": 27,
       "subject": 4,
       "operation": "https://nicolatl.github.io/mytrace-web/ontology#credit-decisioning",
       "operationOntology": "https://nicolatl.github.io/mytrace-web/ontology"
@@ -548,16 +515,12 @@
   },
   {
     "timestamp": "07/10/2025 14:45:00",
-    "id": 39,
+    "id": 43,
     "party": "LendingClub",
     "context": {
       "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt-create",
       "subject": 4,
-      "dataUses": [
-        36,
-        37,
-        38
-      ]
+      "dataUses": [40,41,42]
     },
     "body": "LendingClub denied your loan application"
   }

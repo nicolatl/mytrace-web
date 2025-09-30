@@ -1,9 +1,8 @@
 import attestations from "$lib/data/attestations.json";
 
 export default async function traceAgent({ id }) {
-  // if no id provided, default to last one
-  const startId = id ?? Math.max(...attestations.map(a => a.id));
-  const receipt = attestations.find(a => a.id == startId);
+  
+  const receipt = attestations.find(a => a.id == id);
 
   if (!receipt) {
     return { issues: [], message: `No receipt found for id ${startId}` };
@@ -29,39 +28,23 @@ export default async function traceAgent({ id }) {
 
     //
     // --- declaredPurpose resolution ---
-    //
-    let declaredPurpose = consentRequest.context.terms?.[0]?.purpose?.name;
-    if (typeof declaredPurpose === "number") {
-      const purposeExtension = getById(declaredPurpose);
-      if (purposeExtension) {
-        declaredPurpose =
-          String(purposeExtension?.context?.name ?? "unknown") +
-          "/" +
-          String(purposeExtension?.context?.extension ?? "unknown");
-      } else {
-        declaredPurpose = "unknown";
+    // NOTE: This code is pretty much copied from DataReceipt.svelte 
+    const data = getById(dataUse.context.data);
+    const terms = [];
+    for(const term of consentRequest.context.terms) { // get all terms in the consent cited as a basis
+      terms.push(getById(term));
+    }
+    let declaredPurpose = null;
+    for(const term of terms){
+      if(dataUse.context.data === term.context.data){ // match the relevant term to the data that was used (NOTE: only works for 1:1 data:purpose consent structure)
+        declaredPurpose = term.context.purpose;
       }
-    } else if (typeof declaredPurpose !== "string") {
-      declaredPurpose = String(declaredPurpose ?? "unknown");
     }
 
     //
     // --- operation resolution ---
     //
     let operation = dataUse.context?.operation;
-    if (typeof operation === "number") {
-      const opExtension = getById(operation);
-      if (opExtension) {
-        operation =
-          String(opExtension?.context?.name ?? "unknown") +
-          "/" +
-          String(opExtension?.context?.extension ?? "unknown");
-      } else {
-        operation = "unknown";
-      }
-    } else if (typeof operation !== "string") {
-      operation = String(operation ?? "unknown");
-    }
 
     //
     // --- comparison ---
