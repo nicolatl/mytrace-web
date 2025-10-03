@@ -1,7 +1,9 @@
 <script>
   import { ChevronDown, ChevronUp } from 'lucide-svelte';
   import { base } from '$app/paths';
-  import attestations from '$lib/data/attestations.json';
+  import attestations1 from '$lib/data/attestations.json';
+  import attestations2 from '$lib/data/attestations2.json';
+  const attestations = attestations1.concat(attestations2);
   import TraceAgent from './TraceAgent.svelte';
   import { logos } from '$lib/data/logos.js';
   import TaxonomyLink from "$lib/TaxonomyLink.svelte";
@@ -20,6 +22,8 @@
   // resolve controller name (party field)
   const controller = receipt?.party ?? "Unknown";
 
+  let basis_controller = "unknown";
+
   // resolve action description
   const action = receipt?.body ?? {controller} + " used your data";
 
@@ -36,6 +40,7 @@
       //resolve relevant basis term
       const basisAccept = getById(use.context.basis);
       const consentReq = basisAccept ? getById(basisAccept.context.consent) : null;
+      basis_controller = consentReq?.party ?? "unknown";
       const data = getById(use.context.data);
       const provider = getById(data.context.controller);
       const terms = [];
@@ -44,8 +49,11 @@
       }
       let relevant_term = null;
       for(const term of terms){
-        if(use.context.data === term.context.data){ // match the relevant term to the data that was used (NOTE: only works for 1:1 data:purpose consent structure)
+        if(use.context.data === term.context.data && !relevant_term){
           relevant_term = [data.context.dataType, term.context.purpose];
+        } else if(relevant_term && term.context.purpose === operation){
+          relevant_term = [data.context.dataType, term.context.purpose];
+          //if there are 2 terms for the data, choose the one with the purpose that matches the operation done
         }
       }
 
@@ -90,7 +98,7 @@
       <div class="card-header">
         <img src={logos[(controller ?? "unknown").toLowerCase().replace(/\s/g, "")]} alt="Company logo" width="32" height="32" />
         <div class="title">
-          <h3>{action}</h3>
+          <h3><span class:highlight={issues.find(issue => issue.highlight.includes("controller"))}>{controller}</span> {action}</h3>
         </div>
         <div style="margin-left: auto; display: flex; gap: 0.75rem; align-items: center;">
           <span class="timestamp">{receipt.timestamp}</span>
@@ -124,7 +132,7 @@
             <!-- Right: Consent summary -->
             <div class={`consent-box ${basisExpanded[i] ? 'expanded' : 'collapsed'}`}>
               <button on:click={() => toggleBasisExpand(i)} class="consent-toggle">
-                Your agreement with {controller}
+                <p style="align-items: left; margin-block: 0em;">Your agreement with <span class:highlight={issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("basis_controller"))}>{basis_controller}</span></p>
                 {#if basisExpanded[i] || issues.find(issue => issue.dataUseId == item.id && issue.highlight.includes("purpose"))}
                   <ChevronUp size="16" style="margin-left: 0.5rem;" />
                 {:else}
@@ -136,7 +144,7 @@
                 <div class="consent-details">
                   <p class="consent-timestamp">{item.basis.timestamp}</p>
                   <p class="consent-intro">
-                    allows {controller} to use:
+                    allows {basis_controller} to use:
                   </p>
                   <ul class="consent-terms">
                     {#each item.basis.terms as [datum, purpose]}
@@ -154,7 +162,7 @@
 
         <div class="card-footer">
           <a href="https://www.{controller.toLowerCase()}.com" target="_blank" rel="noopener noreferrer">
-            Review your agreement on {controller}.com
+            Review your agreement on {basis_controller}.com
           </a>
           {#if showReportButton}
             <a href="{base}/report" class="report-link">
@@ -171,7 +179,7 @@
     <div class="card-header">
       <img src={logos[(controller ?? "unknown").toLowerCase().replace(/\s/g, "")]} alt="Company logo" width="32" height="32" />
       <div class="title">
-        <h3>{action}</h3>
+        <h3><span>{controller}</span> {action}</h3>
       </div>
       <div style="margin-left: auto; display: flex; gap: 0.75rem; align-items: center;">
         <span class="timestamp">{receipt.timestamp}</span>

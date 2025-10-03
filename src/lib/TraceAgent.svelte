@@ -13,10 +13,17 @@
   {:else}
     {#each issues as issue}
       <div>
-        <p class="trace-message">
-          Your data was used for <b><TaxonomyLink term={issue.found} /></b><br />
-          when you only allowed use for <b><TaxonomyLink term={issue.expected} /></b>.
-        </p>
+        {#if issue.highlight.includes("controller")}
+          <p class="trace-message">
+            Your data was used by <b>{issue.expected}</b><br />
+            when your agreement only allows use by <b>{issue.found}</b>.
+          </p>
+        {:else}
+          <p class="trace-message">
+            Your data was used for <b><TaxonomyLink term={issue.found} /></b><br />
+            when you only allowed use for <b><TaxonomyLink term={issue.expected} /></b>.
+          </p>
+        {/if}
         <button class="report-button">
           Report This
         </button>
