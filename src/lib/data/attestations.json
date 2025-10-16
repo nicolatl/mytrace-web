@@ -250,7 +250,7 @@
       "subject": 4,
       "dataUses": [19,20]
     },
-    "body": "LendingClub offered you a loan"
+    "body": "offered you a loan"
   },
   {
     "timestamp": "07/07/2025 12:40:00",
@@ -527,6 +527,6 @@
       "subject": 4,
       "dataUses": [40,41,42]
     },
-    "body": "LendingClub denied your loan application"
+    "body": "denied your loan application"
   }
 ]

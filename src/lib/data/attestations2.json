@@ -1,0 +1,225 @@
+[
+  { 
+    "timestamp": "05/23/2025 19:49:00",
+    "id": 4,
+    "party": "Jane Smith",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "mailto:jane.smith@gmail.com"
+    },
+    "body": "Identification created for Jane Smith"
+  },
+  {
+    "timestamp": "01/23/2025 19:00:00",
+    "id": 100,
+    "party": "AllState",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.allstate.com/"
+    },
+    "body": "Identification created for Allstate"
+  },
+  {
+    "timestamp": "01/23/2025 19:00:00",
+    "id": 101,
+    "party": "Arity",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.arity.com/"
+    },
+    "body": "Identification created for Arity"
+  },
+  {
+    "timestamp": "01/23/2025 19:00:00",
+    "id": 102,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#identification-create",
+      "identifier": "https://www.gasbuddy.com/"
+    },
+    "body": "Identification created for GasBuddy"
+  },
+  {
+    "timestamp": "08/23/2025 19:00:00",
+    "id": 103,
+    "party": "Jane Smith",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce",
+      "subject": 4,
+      "controller": 100
+    },
+    "body": "Jane Smith introduces Allstate to Mytrace"
+  },
+  {
+    "timestamp": "08/23/2025 19:01:00",
+    "id": 104,
+    "party": "Allstate",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-acknowledge",
+      "subject": 4,
+      "controller": 100,
+      "introduction": 103
+    },
+    "body": "Allstate agrees to use MyTrace to trace data interactions with Jane Smith"
+  },
+  {
+    "timestamp": "09/06/2025 18:30:00",
+    "id": 105,
+    "party": "Jane Smith",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce",
+      "subject": 4,
+      "controller": 101
+    },
+    "body": "Jane Smith introduces Arity to Mytrace"
+  },
+  {
+    "timestamp": "09/06/2025 18:31:00",
+    "id": 106,
+    "party": "Arity",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-acknowledge",
+      "subject": 4,
+      "controller": 101,
+      "introduction": 101
+    },
+    "body": "Arity agrees to use MyTrace to trace data interactions with Jane Smith"
+  },
+  {
+    "timestamp": "10/01/2025 18:30:00",
+    "id": 107,
+    "party": "Jane Smith",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-introduce",
+      "subject": 4,
+      "controller": 102
+    },
+    "body": "Jane Smith introduces GasBuddy to Mytrace"
+  },
+  {
+    "timestamp": "10/01/2025 18:31:00",
+    "id": 108,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#introduction-acknowledge",
+      "subject": 4,
+      "controller": 102,
+      "introduction": 107
+    },
+    "body": "GasBuddy agrees to use MyTrace to trace data interactions with Jane Smith"
+  },
+  {
+    "timestamp": "10/01/2025 18:32:00",
+    "id": 109,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#data-define",
+      "dataType": "https://ethyca.github.io/fideslang/taxonomy/data_categories/#:~:text=user.telemetry,sensors%20and%20monitoring.",
+      "dataTypeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_categories/",
+      "controller": 102,
+      "subject": 4,
+      "start": "10/01/2025 18:32:00",
+      "end": "10/01/2026 18:32:00"
+    },
+    "body": "GasBuddy defines a dataset comprising the next 12mo of telemetry data from Jane Smith’s phone."
+  },
+  {
+    "timestamp": "10/01/2025 18:33:00",
+    "id": 110,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 109,
+      "purpose": "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=application%2C%20or%20system-,functional.service,Functions%20relating%20to%20provided%20services%2C%20products%2C%20applications%20or%20systems.,-functional.service.improve",
+      "purposeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
+    },
+    "body": "GasBuddy defines a term to use the next 12mo of telemetry data from Jane Smith’s phone for the functional service of a fuel efficiency score"
+  },
+  {
+    "timestamp": "10/01/2025 18:33:00",
+    "id": 111,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#term-define",
+      "data": 109,
+      "purpose": "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=communications%20and%20outreach.-,third_party_sharing,data%20to%20third%20parties%20outside%20of%20the%20system%20or%20service%27s%20scope.,-train_ai_system",
+      "purposeOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
+    },
+    "body": "GasBuddy defines a term to use the next 12mo of telemetry data from Jane Smith’s phone for third party sharing"
+  },
+  {
+    "timestamp": "10/01/2025 18:34:00",
+    "id": 112,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-request",
+      "controller": 102,
+      "subject": 4,
+      "terms": [110,111],
+      "expiry": "10/01/2026 18:34:00"
+    },
+    "body": "GasBuddy requests consent from Jane."
+  },
+  {
+    "timestamp": "10/01/2025 18:35:00",
+    "id": 113,
+    "party": "Jane Smith",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#consent-accept",
+      "consent": 112,
+      "controller": 102,
+      "subject": 4
+    },
+    "body": "Jane Smith accepts consent from GasBuddy"
+  },
+  {
+    "timestamp": "10/08/2025 18:35:00",
+    "id": 114,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
+      "basis": 113,
+      "data": 109,
+      "subject": 4,
+      "operation": "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=application%2C%20or%20system-,functional.service,Functions%20relating%20to%20provided%20services%2C%20products%2C%20applications%20or%20systems.,-functional.service.improve",
+      "operationOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
+    },
+    "body": "GasBuddy uses Jane Smith’s data for a functional service (fuel efficiency score)"
+  },
+  {
+    "timestamp": "10/08/2025 18:36:00",
+    "id": 115,
+    "party": "GasBuddy",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt-create",
+      "subject": 4,
+      "dataUses": [114]
+    },
+    "body": "updated your fuel efficiency score"
+  },
+  {
+    "timestamp": "10/08/2025 18:37:00",
+    "id": 116,
+    "party": "Arity",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataUse-use",
+      "basis": 113,
+      "data": 109,
+      "subject": 4,
+      "operation": "https://ethyca.github.io/fideslang/taxonomy/data_uses/#:~:text=personalize.profiling,of%20serving%20content",
+      "operationOntology": "https://ethyca.github.io/fideslang/taxonomy/data_uses/"
+    },
+    "body": "GasBuddy uses Jane Smith’s data for a functional service (fuel efficiency score)"
+  },
+  {
+    "timestamp": "10/08/2025 18:38:00",
+    "id": 117,
+    "party": "Arity",
+    "context": {
+      "type": "https://nicolatl.github.io/mytrace-web/docs/1.0#dataReceipt-create",
+      "subject": 4,
+      "dataUses": [116]
+    },
+    "body": "profiled your driving behavior"
+  }
+]
